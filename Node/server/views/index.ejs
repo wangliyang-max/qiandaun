@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <div>
+      <div>用户名:<input id="username" /></div>
+      <div>密码:<input type="password" id="password" /></div>
+      <div>年龄:<input type="number" id="age" /></div>
+      <div><button id="register">登录</button></div>
+      <hr />
+      <div>
+        <button id = "update" value="62c78b42494b8936a7947305">更新</button>
+      <button id = "delete">删除</button></div>
+      <br>
+      <table border="1">
+        <thead>
+          <tr>
+            <td>id</td>
+            <td>用户</td>
+            <td>年龄</td>
+            <td>操作</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script type="text/javascript">
+      var register = document.querySelector("#register");
+      var username = document.querySelector("#username");
+      var password = document.querySelector("#password");
+      var update = document.querySelector("#update");
+      var mydelete = document.querySelector("#delete");
+
+        function updateFun(){
+        console.log(this.value)
+        fetch(`/api/user?id=${this.value}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: "名字",
+            password: "密码",
+            age: 1,
+          }),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+          });
+      };
+
+      register.onclick = () => {
+        console.log(username.value, password.value, age.value);
+        fetch("/api/user", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: username.value,
+            password: password.value,
+            age: age.value,
+          }),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+          });
+      };
+
+      update.onclick = updateFun
+
+      mydelete.onclick = () => {
+        fetch("/api/user/62c78b42494b8936a7947305",{
+          method:'DELETE'
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+          });
+      };
+
+      // 第一页数据，要两条
+      fetch("/api/user?page=1&limit=2").then(res=>res.json()).then((res)=>{
+        console.log(res)
+        var tbody = document.querySelector("tbody")
+        // map映射
+        tbody.innerHTML = res.map(item=>`
+        <tr>
+          <td>${item._id}</td>
+          <td>${item.username}</td>
+          <td>${item.age}</td>
+          <td> <button class="update" value="${item._id}"">更新</button><button class="delete">删除</button> </td>
+        </tr>
+        `).join("")
+      })
+    </script>
+  </body>
+</html>

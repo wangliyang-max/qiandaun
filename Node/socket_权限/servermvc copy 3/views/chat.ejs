@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Chat
+    <h1>聊天室</h1>
+    <input type="text" id="text" /><button id="send">send</button>
+    <hr>
+    <div id="chats"></div>
+    <hr>
+    私聊
+    <div id="s_chats"></div>
+    <hr>
+    <h3>用户列表</h3>
+    <select id="select"></select>
+
+    <h3></h3>
+    <script>
+      const WebSocketType = {
+        Error: 0,
+        GroupList: 1,
+        GroupChat: 2,
+        SingleChat: 3,
+      };
+      // 建立socket链接，带着token
+      var chats = document.getElementById("chats");
+      var s_chats = document.getElementById("s_chats");
+      var select = document.getElementById("select");
+      var text = document.getElementById("text");
+      var send = document.getElementById("send");
+
+      // WebSocket()是基于浏览器的内置函数
+      // 建立连接
+      var ws = new WebSocket(
+        `ws://localhost:8080?token=${localStorage.getItem("token")}`
+      );
+
+
+      // 接收从服务端传过来的数据
+      ws.onopen = () => {
+        console.log("连接成功");
+      };
+      ws.onmessage = (msgObj) => {
+        // console.log(msgObj.data);
+        msgObj = JSON.parse(msgObj.data);
+
+        switch (msgObj.type) {
+          case WebSocketType.Error:
+            localStorage.removeItem("token");
+            location.href = "/login";
+            break;
+          case WebSocketType.GroupList:
+            const onlineList = JSON.parse(msgObj.data);
+            select.innerHTML = "";
+            select.innerHTML =
+              `<option value="all">all</option>` +
+              onlineList.map(
+                  (item) => `
+                    <option value="${item.username}">
+                        ${item.username}
+                    </option>`
+                )
+                .join("");
+
+            //  console.log(JSON.parse(msgObj.data))
+            break;
+
+          case WebSocketType.GroupChat:
+            console.log(msgObj);
+            console.log(msgObj.user?.username);
+            var h_html = document.createElement("h3")
+            h_html.innerHTML = `${msgObj.user?.username??""}：${msgObj.data}`;
+            chats.appendChild(h_html)
+            break;
+        case WebSocketType.SingleChat:
+            console.log(msgObj);
+            console.log(msgObj.user?.username);
+            var h_html = document.createElement("h3")
+            h_html.innerHTML = `${msgObj.user?.username??""}：${msgObj.data}`;
+            s_chats.appendChild(h_html)
+            break;
+        }
+      };
+      ws.onerror = () => {
+        console.log("error");
+      };
+
+      send.onclick = () => {
+        if (select.value === "all") {
+          // console.log("群发")
+          ws.send(createMessage(WebSocketType.GroupChat, text.value));
+        } else {
+          // console.log("私聊")
+          ws.send(createMessage(WebSocketType.SingleChat, text.value,select.value));
+        }
+      };
+
+      function createMessage(type, data,to) {
+        return JSON.stringify({
+          type,
+          data,
+          to
+        });
+      }
+    </script>
+  </body>
+</html>

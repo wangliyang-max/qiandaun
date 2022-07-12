@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    jsonp接口调用
+    <p></p>
+    <script type='text/javascript'>
+    var script1 = document.createElement("script")
+    script1.src="http://localhost:3000/hello?callback=yang"
+    document.body.appendChild(script1)
+
+    function yang (data){
+       var p = document.getElementsByTagName("p")[0]
+       console.log(p)
+       p.innerHTML=data.name
+    }
+    </script>
+</body>
+</html>

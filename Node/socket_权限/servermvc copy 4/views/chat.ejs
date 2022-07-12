@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- // 引入socket.io(js版本) -->
+    <script type='text/javascript' src='javascripts/socketio.js'></script>
+    
+  </head>
+  <body>
+    Chat
+    <h1>聊天室</h1>
+    <h1>当前用户：
+        <b id="user"></b>
+    </h1>
+    <input type="text" id="text" /><button id="send">send</button>
+    <select id="select"></select>
+    <hr>
+    <div id="chats"></div>
+    <hr>
+    私聊
+    <div id="s_chats"></div>
+    <hr>
+
+    <h3></h3>
+    <script>
+      const WebSocketType = {
+        Error: 0,
+        GroupList: 1,
+        GroupChat: 2,
+        SingleChat: 3,
+      };
+
+      // 建立socket链接，带着token
+      var chats = document.getElementById("chats");
+      var s_chats = document.getElementById("s_chats");
+      var select = document.getElementById("select");
+      var text = document.getElementById("text");
+      var send = document.getElementById("send");
+
+      var user = document.getElementById("user")
+      user.innerHTML = localStorage.getItem("username")
+
+
+      // 引入socket.io(js端)
+      // 不传参时，默认传递3000端口，socketio端口默认和http的端口一致都是3000
+      // 这里进行修改
+      const socket = io(`ws://localhost:3000?token=${localStorage.getItem("token")}`)
+
+      
+    //   前后端通过相同的事件名进行通信
+     socket.on(WebSocketType.GroupChat,(msg)=>{
+      var h_html = document.createElement("h3")
+      h_html.innerHTML = `${msg.user?.username??"广播"}：${msg.data}`;
+      chats.appendChild(h_html)
+     })
+
+     socket.on(WebSocketType.SingleChat,(msg)=>{
+      console.log(msg)
+      var h_html = document.createElement("h3")
+      h_html.innerHTML = `${msg.user?.username??"广播"}：${msg.data}`;
+      s_chats.appendChild(h_html)
+     })
+
+     socket.on(WebSocketType.Error,(msg)=>{
+      localStorage.removeItem("token")
+      location.href="/login"
+     })
+
+     socket.on(WebSocketType.GroupList,(msg)=>{
+      console.log(msg)
+      const onlineList = msg.data;
+      select.innerHTML = "";
+      select.innerHTML =
+        `<option value="all">all</option>` +
+        onlineList.map(
+            (item) => `
+              <option value="${item.username}">
+                  ${item.username}
+              </option>`
+          )
+          .join("");
+     })
+     
+
+      send.onclick = () => {
+        if (select.value === "all") {
+          // console.log("群发")
+          socket.emit(WebSocketType.GroupChat,createMessage(text.value))
+         
+        } else {
+          // console.log("私聊")
+          socket.emit(WebSocketType.SingleChat,createMessage(text.value,select.value))
+        }
+      };
+
+      function createMessage(data,to) {
+        // 使用socket可以直接传对象，无需转换成字符串
+        return {
+          data,
+          to
+        };
+      }
+    </script>
+  </body>
+</html>

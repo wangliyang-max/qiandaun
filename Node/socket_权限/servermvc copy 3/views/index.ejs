@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type='text/javascript'>
+        // 拦截器
+        // 请求发出前执行的方法
+      axios.interceptors.request.use(function (config) {
+          console.log("请求发出前执行的方法")
+          // 将token给后端
+          const token = localStorage.getItem("token")
+          // config是请求对象，可以传递给后端,Bearer 是规范
+          config.headers.Authorization = `Bearer ${token}`
+          return config;
+        }, function (error) {
+         
+          return Promise.reject(error);
+      });
+        // 请求成功之后第一个调用的方法
+      axios.interceptors.response.use(function (response) {
+            console.log("请求成功之后第一个调用的方法")
+            const {authorization} = response.headers
+            authorization && localStorage.setItem("token",authorization)
+            return response;
+
+            if(response.data.ok==0){
+              location.href="/login"
+            }
+          }, function (error) {
+            console.log(error.response.status)
+            if(error.response.status===401){
+              localStorage.removeItem("token")
+              location.href="/login"
+            }
+            return Promise.reject(error);
+      });
+      </script>
+      <style>
+        td img{
+          width: 80px;
+          height: 80px;
+        }
+      </style>
+  </head>
+  <body>
+    <div>
+      <h1>后台管理系统
+        <button id="exit">退出登录</button>
+        </h1>
+      <div>用户名:<input id="username" /></div>
+      <div>密码:<input type="password" id="password" /></div>
+      <div>年龄:<input type="number" id="age" /></div>
+      <div>头像:<input type="file" id="avatar" /></div>
+      <div><button id="register">注册</button></div>
+      <hr />
+      <div>
+        <button class="update" id="update" value="62c7c98e8e9c28077a53d4a7">
+          更新
+        </button>
+        <button class="delete" id="delete">删除</button>
+      </div>
+      <br />
+      <table border="1">
+        <thead>
+          <tr>
+            <td>id</td>
+            <td>用户</td>
+            <td>年龄</td>
+            <td>操作</td>
+            <td>头像</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <script type="text/javascript">
+      var register = document.querySelector("#register");
+      var username = document.querySelector("#username");
+      var password = document.querySelector("#password");
+      // var update = document.getElementsByClassName("update");
+      // var mydelete = document.querySelector("#delete");
+      var exit = document.querySelector("#exit");
+      var avatar = document.querySelector("#avatar");
+
+      function updateFun() {
+        console.log(this.value);
+        axios.put(`/api/user?id=${this.value}`,{
+            username: "名字",
+            password: "密码",
+            age: 1,
+          }).then((res) => {
+            console.log(res);
+          });
+      }
+      function deleteFun() {
+        console.log(this.value);
+        axios.delete(`/api/user?id=${this.value}`).then((res) => {
+            console.log(res.data);
+          });
+        }
+
+
+      register.onclick = () => {
+        console.log(username.value, password.value, age.value,avatar.files[0]);
+        const formdata = new FormData()
+        formdata.append("username",username.value)
+        formdata.append("password",password.value)
+        formdata.append("age",age.value)
+        formdata.append("avatar",avatar.files[0])
+        axios.post("/api/user",formdata,{
+          headers:{
+            'Content-Type':'multipart/form-data'
+          }
+        }).then((res) => {
+            console.log(res.data);
+          });
+
+        // axios.post("/api/user",{
+        //     username: username.value,
+        //     password: password.value,
+        //     age: age.value,
+        //   }).then((res) => {
+        //     console.log(res.data);
+        //   });
+
+        }
+        
+
+      var updates;
+      async function getButton() {
+        await axios.get("/api/user?page=1&limit=10").then((res) => {
+           res = res.data
+            console.log(res);
+            var tbody = document.querySelector("tbody");
+            // map映射
+            tbody.innerHTML = res
+              .map(
+                (item) => `
+              <tr>
+                <td>${item._id}</td>
+                <td>${item.username}</td>
+                <td>${item.age}</td>
+                <td> <button class="update" value=${item._id}>更新</button><button class="delete" value=${item._id}>删除</button> </td>
+                <td><img src="${item.avatar}"/></td>
+              </tr>
+              `
+              )
+              // src="${item.avatar}"是请求命令不是图片地址
+              .join("");
+          })
+
+        // 更新操作
+        updates = document.getElementsByClassName("update");
+        var i = 0;
+        for (i; i < updates.length; i++) {
+          updates[i].onclick = updateFun;
+        }
+
+        // 删除操作
+        mydeletes = document.getElementsByClassName("delete");
+        var i = 0;
+        for (i; i < mydeletes.length; i++) {
+          mydeletes[i].onclick = deleteFun;
+        }
+      }
+
+      getButton();
+
+      exit.onclick = ()=>{
+        // 直接移除前端的token
+       localStorage.removeItem("token") 
+        location.href="/login"
+     
+      }
+    </script>
+  </body>
+</html>

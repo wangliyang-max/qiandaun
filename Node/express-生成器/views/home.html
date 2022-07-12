@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 这里不是路径是请求 -->
+    <link rel="stylesheet" href="/css/home.css">
+    
+</head>
+<body>
+    Home
+    <div class="title">欢迎回来</div>
+     <ul class="list"></ul>
+    <script type='text/javascript'>
+    fetch("/api/home/list").then((res) => res.json())
+          .then((res)=>{
+            console.log(res)
+            render(res)
+          })
+    function render (data){
+        // map将数组中的每一个值进行映射
+       var list = data.map(item=>`<li>${item}</li>`)
+       var oul = document.querySelector(".list")
+    //  list.json("")将数据变成字符串 ，解析成节点 
+       oul.innerHTML = list.join("")
+    }
+    
+    </script>
+</body> 
+</html>

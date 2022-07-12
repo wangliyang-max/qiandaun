@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Login
+    <div>
+      <div>
+        用户名：
+        <input type="text" id="username" />
+      </div>
+      <div>
+        密码：
+        <input type="password" id="password" />
+      </div>
+      <div>
+        <button type="submit" id="loginpost">登录-post</button>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var loginpost = document.querySelector("#loginpost");
+      var username = document.querySelector("#username");
+      var password = document.querySelector("#password");
+
+    
+      //   post请求
+      loginpost.onclick = () => {
+        fetch(`/user/login`, {
+          method: "POST",
+          body: JSON.stringify({
+            username: username.value,
+            password: password.value,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.text())
+          .then((res) => {
+            console.log(res)
+            res = JSON.parse(res)
+            if(res.ok==1){
+                location.href ="/home"
+            }else{
+                alert("用户名密码不对")
+            }
+          });
+      };
+    </script>
+  </body>
+</html>

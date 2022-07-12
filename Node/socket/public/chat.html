@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Chat
+    <h1>聊天室</h1>
+    <h3></h3>
+    <script>
+        var chats = document.getElementsByTagName("h3")[0]
+
+        // WebSocket()是基于浏览器的内置函数
+        // 建立连接
+        var ws = new WebSocket("ws://localhost:8080")
+
+        // 接收从服务端传过来的数据
+        ws.onopen=()=>{
+            console.log("连接成功")
+        }
+        ws.onmessage=(msgObj)=>{
+            console.log(msgObj.data)
+            chats.innerHTML = `${msgObj.data}`
+        }
+        ws.onerror=()=>{
+            console.log("error")
+        }
+
+        // 将数据从客户端发送到服务端
+        // ws.send("将数据从客户端发送到服务端")
+
+
+    </script>
+</body>
+</html>

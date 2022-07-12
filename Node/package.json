@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "math": "^0.0.3",
+    "md5": "^2.3.0",
+    "nodemon": "^2.0.19",
+    "nrm": "^0.2.0"
+  },
+  "name": "node",
+  "version": "1.0.0",
+  "main": "a.js",
+  "type": "commonjs",
+  "devDependencies": {
+    "coffee-script": "^1.7.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
