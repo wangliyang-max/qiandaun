@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller = "MyCtrl">
+        <div>
+            <h2>价格计算器 （自动）</h2>
+            数量：<input type="number" ng-model = "count1">
+            价格：<input type="number" ng-model = "price1">
+            <p>总计：{{count1*price1}}</p>
+        </div>
+
+        <div>
+            <h2>价格计算器 （手动）</h2>
+            数量：<input type="number" ng-model = "count2">
+            价格：<input type="number" ng-model = "price2">
+            <!-- ng-click ：调用作用域对象的方法（点击时) -->
+            <button ng-click = "getTotalPrice()">计算</button>
+            <p>总计：{{totalPrice}}</p>
+        </div>
+
+
+        <!-- ng-repeat:~遍历数组显示数据，数组有几个元素就会产生几个新的作用域 -->
+        <div>
+            <h2>人员信息列表</h2>
+            <ul>
+                <li ng-repeat="person in persons">
+                   {{$middle}}——{{$index}}——{{person.username}}——{{person.age}}
+                </li>
+            </ul>
+        </div>
+
+        <!-- bind -->
+        <div>
+            <p>{{123}}</p>
+            <p ng-bind="123"></p>
+        </div>
+
+        <!-- 
+            - ng-show:布尔类型，如果为true才显示
+            - ng-hide:布尔类型，如果为true就隐藏
+         -->
+        <div>
+            <button ng-click = "switchIs()">切换显示</button>
+            <p ng-show = "is">yang_ng-show</p> 
+            <p ng-hide = "is">yang_ng-hide</p> 
+        </div>
+
+    </div>
+    <script type='text/javascript' src='./angular/angular-1.5.5/angular.js'></script>
+    <script>
+        // 创建模块
+        angular.module('myApp',[])
+            .controller('MyCtrl',function ($scope){
+               $scope.price1 = 20
+               $scope.count1 = 1
+
+               $scope.price2 = 20
+               $scope.count2 = 1
+                $scope.totalPrice = 20
+               $scope.getTotalPrice = function (){
+                  $scope.totalPrice=$scope.price2*$scope.count2
+               }
+
+            //    人员数据
+            $scope.persons = [
+                {username:'yang1',age:18},
+                {username:'yang2',age:18},
+                {username:'yang3',age:18},
+                {username:'yang4',age:18},
+                {username:'yang5',age:18},
+            ]
+
+            $scope.is = true
+            $scope.switchIs=function(){
+                $scope.is = !$scope.is
+            }
+            
+            })
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body ng-app ng-init="firstName='yang'">
+
+    <div ng-controller="MyController">
+        <input type="text" ng-model="firstName">
+        <input type="text" ng-model='lastName'>
+        <p>姓名1：{{firstName+'-'+lastName}}</p>
+        <p>姓名2：{{getName()}}</p>
+    </div>
+
+    <script type='text/javascript' src='./angular/angular-1.2.29/angular.js'></script>
+    <script type='text/javascript'>
+        function MyController ($scope){//形参必须是$scope
+           console.log($scope) 
+        //    给作用于添加属性和方法
+            $scope.firstName = 'cheng'
+            $scope.lastName = 'zhe'
+            $scope.getName = function (){
+               return $scope.firstName + ' '+ $scope.lastName
+            }
+        }
+    </script>
+    
+</body>
+</html>

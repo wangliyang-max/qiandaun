@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .evenB{
+            background: darksalmon;
+        }
+        .oddB{
+            background: darkseagreen;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller = "MyCtrl">
+
+        <!-- ng-style：动态引用通过js指定的样式对象 -->
+        <div style="width: 200px;height: 200px;" ng-style="myStyle" ng-mouseenter="enter()" ng-mouseleave = "leave()"></div>
+
+        <ul>
+            <li ng-class="{oddB:$odd,evenB:$even}" ng-repeat="person in persons">{{person.username}}——{{person.age}}</li>
+        </ul>
+
+    </div>
+    <script type='text/javascript' src='./angular/angular-1.5.5/angular.js'></script>
+    
+    <script type='text/javascript'>
+        angular.module('myApp',[])
+        .controller('MyCtrl',function ($scope){
+            $scope.myStyle ={
+               background:'darksalmon'
+            }
+
+            $scope.enter = function (){
+               this.myStyle.background = 'pink'
+            }
+
+            $scope.leave = function (){
+               this.myStyle.background = 'darksalmon'
+            }
+
+            //    人员数据
+            $scope.persons = [
+                {username:'yang1',age:18},
+                {username:'yang2',age:18},
+                {username:'yang3',age:18},
+                {username:'yang4',age:18},
+                {username:'yang5',age:18},
+            ]
+        })
+    </script>
+</body>
+</html>

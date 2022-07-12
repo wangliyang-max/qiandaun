@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body ng-app="myApp">
+    <div ng-controller = "Mycontroller">
+        <input type="text" ng-model="empName">
+        <p>员工名字1：{{empName}}</p>
+    </div>
+    <div ng-controller = "Mycontroller2">
+        <input type="text" ng-model="empName">
+        <p>员工名字2：{{empName}}</p>
+    </div>
+    
+    <script type='text/javascript' src='./angular/angular-1.5.5/angular.js'></script>
+    <script type='text/javascript'>
+    // 创建模块对象
+        angular.module('myApp',[])
+            .controller('Mycontroller',['$scope',function ($scope){
+           $scope.empName = 'yang'
+        }])
+            .controller('Mycontroller2',['$scope',function ($scope){
+           $scope.empName = 'cheng'
+        }])
+        
+    </script>
+</body>
+</html>

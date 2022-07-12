@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body ng-app='myApp'>
+    <div ng-controller="MyCtrl">
+        <p>{{abc}}</p>
+        <p>{{abc.split('')}}</p>
+        <p>{{abc.split('').reverse()}}</p>
+        <p>{{abc.split('').reverse().join('')}}</p>
+    </div>
+    <script type='text/javascript' src='./angular/angular-1.5.5/angular.js'></script>
+    <script type='text/javascript'>
+    // 创建模块对象
+    angular.module('myApp',[])
+            .controller('MyCtrl',['$scope',function($scope){
+                $scope.abc = "abcdef"
+            }])
+    </script>
+</body>
+</html>
