@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        p{
+            font-size: 30px;
+        }
+        p::first-letter{
+            font-size: 50px;
+        }
+        p::first-line{
+            background-color: darkcyan;
+        }
+        p::selection{
+            background-color: darksalmon;
+        }
+        p::before{
+            content: 'abc';
+            color: red;
+        }
+        p::after{
+            content: 'abc';
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolor quos dolorem quas, porro doloremque omnis explicabo, accusamus sunt commodi rerum adipisci nam maxime esse tempora reiciendis cum eum eos!</p>
+    
+</body>
+</html>

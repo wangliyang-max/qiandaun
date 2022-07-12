@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      .box1 {
+        width: 200px;
+        height: 200px;
+        background-color: tomato;
+      }
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background-color: teal;
+        margin-top: 100px;
+      }
+      .clearfix::before,
+      .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1 clearfix">
+      <div class="box2"></div>
+    </div>
+  </body>
+</html>

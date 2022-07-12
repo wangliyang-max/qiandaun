@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../reset.css" />
+    <style>
+        .nav{
+            /* width: 1246px; */
+            width: 1250px;
+            height: 50px;
+            background-color: rgb(231,231,226);
+            margin: 50px auto;
+            position: sticky;
+            top:100px;
+        }
+        .nav li{
+            height:50px;
+            float: left;
+            /* 设置height=line-height可以使元素垂直居中 */
+            line-height: 48px;
+        }
+        .nav a{
+            display: block;
+            color: slategray;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 0 42px;
+        }
+        .nav li:last-child a{
+            /* 这样写或者将nav的宽度修改为 width: 1246px; */
+             padding: 0 44px 0 44px;
+         }
+         .nav a:hover{
+             background-color: #3f3f3f;
+             color: white;
+         }
+         .box1{
+           width: 200px;
+           height: 1000px;
+           background-color: darksalmon;
+         }
+         body{
+           height: 2000px;
+         }
+        
+    </style>
+  </head>
+  <body>
+    <ul class="nav">
+      <li><a href="#">HTML/CSS</a></li>
+      <li><a href="#">Browser Side</a></li>
+      <li><a href="#">Server Side</a></li>
+      <li><a href="#">Programming</a></li>
+      <li><a href="#">XML</a></li>
+      <li><a href="#">Web Building</a></li>
+      <li><a href="#">Reference</a></li>
+    </ul>
+    <div class="box1"></div>
+  </body>
+</html>
+
+

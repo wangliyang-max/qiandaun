@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      #employeeTable {
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+      #employeeTable td,
+      th {
+        padding: 5px 20px;
+      }
+      #formDiv {
+        border: 1px solid black;
+        width: 30%;
+        margin: 80px auto;
+        text-align: center;
+      }
+      #formDiv table {
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1" id="employeeTable">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Salary</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr id="Tom">
+        <td>Tom</td>
+        <td>TOM@tom.com</td>
+        <td>5000</td>
+        <td><a href="deleteEmp?id=001">Delete</a></td>
+      </tr>
+      <tr id="Jerry">
+        <td>Jerry</td>
+        <td>Jerry@sohu.com</td>
+        <td>8000</td>
+        <td><a href="deleteEmp?id=002">Delete</a></td>
+      </tr>
+      <tr id="Bob">
+        <td>Bob</td>
+        <td>Bob@tom.com</td>
+        <td>10000</td>
+        <td><a href="deleteEmp?id=003">Delete</a></td>
+      </tr>
+    </table>
+
+    <div id="formDiv">
+      <h4>添加新员工</h4>
+      <table>
+        <tr>
+          <td class="word">name:</td>
+          <td class="inp">
+            <input type="text" name="empName" id="empName" />
+          </td>
+        </tr>
+        <tr>
+          <td class="word">Email:</td>
+          <td class="inp">
+            <input type="text" name="empEmail" id="empEmail" />
+          </td>
+        </tr>
+
+        <tr>
+          <td class="word">Salary:</td>
+          <td class="inp">
+            <input type="text" name="empSalary" id="empSalary" />
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="2" align="center">
+            <button id="addEmpButton" value="abc">提交</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <script type="text/javascript" src="./jquery库/jquery-1.12.4.js"></script>
+    <script>
+      $("#addEmpButton").click(function () {
+        //    1.收集输入的数据
+        var $empName = $("#empName");
+        var $email = $("#empEmail");
+        var $salary = $("#empSalary");
+        var empName = $empName.val();
+        var email = $email.val();
+        var salary = $salary.val();
+        // 2. 生成对应的<tr>标签结构，并插入#empLoyeeTable的tbody中
+        $("<tr></tr>")
+          .append("<td>" + empName + "</td>")
+          .append("<td>" + email + "</td>")
+          .append("<td>" + salary + "</td>")
+          .append(
+            '<td><a href="deleteEmp?id=' + Date.now() + '">Delete</a></td>'
+          )
+          .appendTo("#employeeTable>tbody")
+          .find("a")
+          .click(clickDelete);
+
+        // 3.清除输入
+        $empName.val("");
+        $email.val("");
+        $salary.val("");
+      });
+
+      $("#employeeTable a").click(clickDelete);
+
+      function clickDelete() {
+        var $tr = $(this).parent().parent();
+        var name = $tr.children(":first").html();
+        if (confirm("确定删除" + name + "吗？")) {
+          $tr.remove();
+        }
+        return false;
+      }
+    </script>
+  </body>
+</html>

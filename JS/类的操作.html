@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      .b1 {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+      }
+      .b2 {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var box = document.getElementById("box");
+        var btn1 = document.getElementById("btn1");
+        var btn2 = document.getElementById("btn2");
+        var btn3 = document.getElementById("btn3");
+        btn1.onclick = function () {
+          addClass(box, "b2");
+        };
+        btn2.onclick = function () {
+          deleteClass(box, "b2");
+        };
+        btn3.onclick = function () {
+          toggleClass(box, "b2");
+        };
+      };
+            function addClass(obj, cn) {
+        //   没有改属性才添加
+        if (!hasClass(box, "b2")) {
+          obj.className += " " + cn;
+        }
+      }
+      function deleteClass(obj, cn) {
+        //创建正则表达式进行查找删除
+        var reg = new RegExp("\\b" + cn + "\\b");
+        obj.className = obj.className.replace(reg, "");
+      }
+
+      /*
+      toggleclass可以用来切换一个类
+      如果元素中具有该类,则删除
+      如果元素中没有该类，则添加*/
+      function toggleClass(obj, cn) {
+        if (hasClass(obj, cn)) {
+          deleteClass(obj, cn);
+        } else {
+          addClass(obj, cn);
+        }
+      }
+
+      // 判断一个元素中是否含有指定的class属性值
+      // 如果有该class，则返回true，没有则返回falsel
+      function hasClass(obj, cn) {
+        // 使用正则表达式判断
+        // var reg=/\bb2\b/;
+        // 使用new可以传递变量
+        var reg = new RegExp("\\b" + cn + "\\b");
+        return reg.test(obj.className);
+      }
+
+    </script>
+  </head>
+  <body>
+    <button id="btn1">点击按钮添加b2</button>
+    <br />
+    <br />
+    <button id="btn2">点击按钮删除b2</button>
+    <br />
+    <br />
+    <button id="btn3">点击切换类</button>
+    <br />
+    <br />
+
+    <div id="box" class="b1"></div>
+  </body>
+</html>

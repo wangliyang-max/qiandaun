@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Object.fromEntries</title>
+</head>
+<body>
+    <script>
+        // 二维数组
+        const result1 = Object.fromEntries([
+            ['name','yang'],
+            ['age','19'],
+        ])
+        console.log(result1)
+        
+        // map
+        const m =new Map()
+        m.set('name','yang')
+        const result2 = Object.fromEntries(m)
+        console.log(result2)
+        
+    </script>
+</body>
+</html>

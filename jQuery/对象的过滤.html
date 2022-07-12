@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>AAAAA</li>
+      <li title="hello" class="box2">BBBBB</li>
+      <li class="box">ccccc</li>
+      <li title="hello">DDDDDD</li>
+      <li title="two"><span>BBBBB</span></li>
+    </ul>
+    <li>eeeee</li>
+    <li>EEEEE</li>
+    <br />
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script>
+        var $lis = $('ul>li')
+        // 1. ul 下 li 标签第一个
+        // 注意：$lis.first()是一个jQuery对象，$lis[0]是一个Dom元素对象
+        $lis.first().css('background','red')
+        // 2. ul 下 li 标签的最后一个
+        $lis.last().css('background','red')
+        // 3. ul 下 li 标签的第二个
+        $lis.eq(1).css('background','red')
+        // 4. ul 下 li 标签中title属性为hello的
+        $lis.filter('[title=hello]').css('background','yellow')
+        // 5. ul 下 li 标签中title属性不为hello的
+        // 没有title的也会被选中
+        $lis.not('[title=hello]').css('background','green')
+        $lis.filter('[title!=hello]').css('background','green')
+        // 有title属性但title属性不为hello的也会被选中
+        $lis.filter('[title][title!=hello]').css('background','blue')
+        $lis.filter('[title]').not('[title=hello]').css('background','blue')
+
+        // 6. ul 下 li 标签中有span子标签的
+        $lis.has('span').css('background','purple')
+    </script>
+  </body>
+</html>

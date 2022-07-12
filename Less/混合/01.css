@@ -1,0 +1,23 @@
+#wrap .inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: yellow;
+  height: 100px;
+  width: 100px;
+}
+#wrap .inner2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: deeppink;
+  height: 200px;
+  width: 200px;
+}
+/*# sourceMappingURL=./01.css.map */

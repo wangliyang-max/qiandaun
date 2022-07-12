@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <style>
+        table{
+           width: 50%;
+            border:1px solid black;
+            /* border-spacing: 1px; */
+            border-collapse: collapse;
+        }
+
+    </style>
+</head>
+<body>
+    <table border="1" width="50%" align="center" id="data" >
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>工资</td>
+                <td>出生年月</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tom</td>
+                <td>￥3500</td>
+                <td>2010-10-25</td>
+                <td><a href="javascript:void(0)">删除</a></td>
+            </tr>
+            <tr>
+                <td>Marry</td>
+                <td>￥3400</td>
+                <td>2010-12-2</td>
+                <td><a href="javascript:void(0)">删除</a></td>
+            </tr>
+            <tr>
+                <td>King</td>
+                <td>￥5900</td>
+                <td>2010-12-5</td>
+                <td><a href="javascript:void(0)">删除</a></td>
+            </tr>
+            <tr>
+                <td>Marry</td>
+                <td>￥3400</td>
+                <td>2010-12-2</td>
+                <td><a href="javascript:void(0)">删除</a></td>
+            </tr>
+            <tr>
+                <td>King</td>
+                <td>￥5900</td>
+                <td>2010-12-5</td>
+                <td><a href="javascript:void(0)">删除</a></td>
+            </tr>
+            <tr>
+                <td>King</td>
+                <td>￥5900</td>
+                <td>2010-12-5</td>
+                <td><a href="javascript:void(0)">删除</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script>
+        $('#data>tbody>tr:odd').css('background','#ccccff')
+    </script>
+    
+</body>
+</html>

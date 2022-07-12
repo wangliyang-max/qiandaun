@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script type='text/javascript' src='./myModule.js'></script>
+    <script type='text/javascript' src='./myModule2.js'></script>
+    
+    <script>
+    //先执行函数 
+       var module = myModule()
+       module.doSomething()
+       module.doOtherthing()
+
+    //    也使用了闭包，因为匿名函数的自调用已经调用了函数了，无需再手动调用
+       myModule2.doSomething()
+       myModule2.doOtherthing()
+    </script>
+</body>
+</html>

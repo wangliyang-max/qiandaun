@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background-color: plum;
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+             var btn2 = document.getElementById("btn2");
+            btn2.onclick = function(){
+                // var obj = getComputedStyle(box1,null);
+                // alert(obj.width);
+                alert(getStyle(box1,"width"));
+                
+            }
+            /*
+            obj:要获取样式的元素
+            name：要获取的样式名
+            */
+
+            function getStyle(obj,name){
+                // 这里要写window.getComputedStyle，而不能写getComputedStyle；
+                //因为只写getComputedStyle相当于写了一个变量。变量找不到,会报错；window.getComputedStyle相当于属性，属性找不到，返回undefine
+             if(window.getComputedStyle){
+              // 正常浏览器
+               return getComputedStyle(obj,null)[name];
+              //    IE8
+              }else{
+               return obj.currentStrly[name];
+               }
+            //    简写：
+            // return window.getComputedStyle?getComputedStyle(obj,null)[name]:obj.currentStrly[name];
+
+            }
+
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id ="box1">
+    </div>
+    <br>
+    <button id = "btn2">点击按钮读取样式</button>
+
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      .outer {
+        height: 500px;
+        border-bottom: 10px black solid;
+        /* 防止地卖弄和小球一起移动 */
+        overflow: hidden;
+      }
+      .outer div{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        /* background-color: coral; */
+        animation: ball 1s forwards linear infinite alternate;
+        float: left;
+      }
+      div.box1{
+          background-color: rgb(228, 165, 177);
+      }
+      div.box2{
+          background-color: rgb(245, 188, 237);
+          animation-delay: .1s;
+      }
+      div.box3{
+          background-color: rgb(213, 188, 245);
+          animation-delay: .2s;
+      }
+      div.box4{
+          background-color: rgb(188, 201, 245);
+          animation-delay: .3s;
+      }
+      div.box5{
+          background-color: rgb(188, 245, 233);
+          animation-delay: .4s;
+      }
+      div.box6{
+          background-color: rgb(239, 245, 188);
+          animation-delay: .5s;
+      }
+      div.box7{
+          background-color: rgb(245, 214, 188);
+          animation-delay: .6s;
+      }
+      div.box8{
+          background-color: rgb(245, 188, 188);
+          animation-delay: .7s;
+      }
+      @keyframes ball {
+        from {
+          margin-top: 0;
+        }
+        to {
+          margin-top: 400px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+      <div class="box4"></div>
+      <div class="box5"></div>
+      <div class="box6"></div>
+      <div class="box7"></div>
+      <div class="box8"></div>
+    </div>
+  </body>
+</html>

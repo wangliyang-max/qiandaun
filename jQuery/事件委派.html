@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委派</title>
+</head>
+<body>
+    <ul>
+        <li>11111</li>
+        <li>11111111</li>
+        <li>11111111111</li>
+        <li>11111111111111</li>
+    </ul>
+    <li>22222</li>
+    <br>
+    <button id='btn'>添加新的li</button>
+    <button id='btn2'>移除ul上的事件委派</button>
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script>
+        // 设置事件委托
+       $('ul').delegate('li','click',function (){
+        //   this是li
+        this.style.background = 'red'
+       })
+        $('#btn').click(function (){
+            $('ul').append('<li>新增的li</li>')
+       })
+     $('#btn2').click(function (){
+        // 移除事件委托
+        $('ul').undelegate('click')
+     })
+
+    </script>
+</body>
+</html>

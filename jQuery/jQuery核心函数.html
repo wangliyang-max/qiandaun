@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>jQuery核心函数</title>
+  </head>
+  <body>
+    <div>
+        <button id='btn'>测试</button>
+        <br>
+        <input type="text" name="msg1"><br>
+        <input type="text" name="msg2"><br>
+        <p>天气真好</p>
+    </div>
+    <div style="border: 1px red solid;">
+
+    </div>
+
+
+    <script type="text/javascript" src="./jquery库/jquery-1.12.4.js"></script>
+    <script>
+        $(function (){//当DOM加载完成后，执行此回调函数
+            // 参数为选择器字符串：查找所有匹配的标签，并将它们封装成jQuery对象
+            $('#btn').click(function (){
+            //    注意this仍然是发生事件的Dom元素（与是否使用了jQuery没有关系）
+                // 参数为DOM对象：将dom对象封装成jQuery对象
+                alert($(this).html())
+                // 参数为htmL标签字符串（用得少)：创建标签对象并封装成jQuery对象
+                $('<input type="text" name="msg2"><br>').appendTo('div')
+                $('p').appendTo('div')
+            })
+           
+        })
+
+        var arr=[1,2,3]
+        $.each(arr,function(index,item){
+          console.log(index,item)
+        })
+
+        var str='   baidu   nihao    '
+        console.log('--'+str+"--")
+        // 原生方法
+        console.log('--'+str.trim()+"--")
+        // jQuery方法
+        console.log('--'+$.trim(str)+"--")
+        
+
+      
+    </script>
+  </body>
+</html>

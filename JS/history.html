@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload =function(){
+        // alert("访问了"+history.length+"个页面");
+        var btn =document.getElementById("btn");
+        btn.onclick=function(){
+            // 回退到上一个页面
+            history.back();
+        }
+        var btn2 =document.getElementById("btn2");
+        btn2.onclick=function(){
+            // 回退到上一个页面
+            history.go(-2);
+        }
+        }
+    </script>
+   
+</head>
+<body>
+  <h1>History</h1>
+  <button id="btn">点我回退</button>
+   <button id="btn2">点我回退2个页面</button>
+</body>
+</html>

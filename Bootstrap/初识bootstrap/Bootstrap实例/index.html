@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,user-scalable=no"
+    />
+
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+    <style>
+      body {
+        height: 1200px;
+      }
+      .carousel-inner img {
+        width: 100%;
+      }
+      .damu-carousel {
+        margin-top: 50px;
+      }
+      .damu-carousel,
+      .damu-carousel .item {
+        width: 100%;
+        margin: 0 auto;
+        height: 400px;
+        overflow: hidden;
+      }
+      .carousel-caption {
+        bottom: 10%;
+      }
+      @media only screen and (max-width: 768px) {
+        .damu-carousel,
+        .damu-carousel .item {
+          width: 100%;
+          margin: 0 auto;
+          height: 200px;
+          overflow: hidden;
+        }
+        .carousel-caption {
+          bottom: 10%;
+        }
+      }
+      .damu-sl {
+        margin-top: 50px;
+      }
+      .liner > hr {
+        margin: 50px auto;
+        border-top: 1px solid palevioletred;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 导航 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle collapsed"
+            data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">现代浏览器博物馆</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">综述 <span class="sr-only">(current)</span></a>
+            </li>
+            <li><a href="#">简述</a></li>
+            <li class="dropdown">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >特点 <span class="caret"></span
+              ></a>
+              <ul class="dropdown-menu" id="damu-nav">
+                <li><a href="#babeljs">babeljs</a></li>
+                <li><a href="#react">react</a></li>
+                <li><a href="#typescript">typescript</a></li>
+                <li><a href="#boot">boot</a></li>
+                <!-- <li><a href="#">IE</a></li> -->
+              </ul>
+            </li>
+            <li>
+              <a href="javascript:;" data-toggle="modal" data-target="#myModal"
+                >关于</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+
+    <!-- 轮播图 -->
+    <div
+      id="carousel-example-generic"
+      class="carousel slide damu-carousel"
+      data-ride="carousel"
+      data-interval="5000"
+    >
+      <!--  小圆点 -->
+      <ol class="carousel-indicators">
+        <li
+          data-target="#carousel-example-generic"
+          data-slide-to="0"
+          class="active"
+        ></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="./img/babeljs.png" alt="babeljs" />
+          <div class="carousel-caption">
+            <h3>babeljs</h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/boot.png" alt="boot" />
+          <div class="carousel-caption">
+            <h3>boot</h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/react.png" alt="react" />
+          <div class="carousel-caption">
+            <h3>react</h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/typescript.png" alt="typescript" />
+          <div class="carousel-caption">
+            <h3>typescript</h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="./img/webpack.png" alt="webpack" />
+          <div class="carousel-caption">
+            <h3>webpack</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- 按钮 -->
+      <a
+        class="left carousel-control"
+        href="#carousel-example-generic"
+        role="button"
+        data-slide="prev"
+      >
+        <span
+          class="glyphicon glyphicon-chevron-left"
+          aria-hidden="true"
+        ></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a
+        class="right carousel-control"
+        href="#carousel-example-generic"
+        role="button"
+        data-slide="next"
+      >
+        <span
+          class="glyphicon glyphicon-chevron-right"
+          aria-hidden="true"
+        ></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!-- 三列布局（栅格布局） -->
+    <div class="container damu-sl">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <img src="./img/babeljs.png" />
+          <div class="caption">
+            <h3>babeljs</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+              eos voluptatibus quasi quaerat quas consequuntur dignissimos
+              eligendi, doloremque laborum culpa a neque ab, enim sit autem
+              harum rem quo sequi.
+            </p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <img src="./img/react.png" />
+          <div class="caption">
+            <h3>react</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+              eos voluptatibus quasi quaerat quas consequuntur dignissimos
+              eligendi, doloremque laborum culpa a neque ab, enim sit autem
+              harum rem quo sequi.
+            </p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <img src="./img/boot.png" />
+          <div class="caption">
+            <h3>boot</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus,
+              eos voluptatibus quasi quaerat quas consequuntur dignissimos
+              eligendi, doloremque laborum culpa a neque ab, enim sit autem
+              harum rem quo sequi.
+            </p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 线 -->
+    <div class="container liner">
+      <hr />
+    </div>
+
+    <!-- 标签页 -->
+    <div class="container" id="damu-tab">
+      <!-- 标签头 -->
+      <ul class="nav nav-tabs" role="tablist" id="damu-list">
+        <li role="presentation" class="active">
+          <a
+            href="#babeljs"
+            aria-controls="babeljs"
+            role="tab"
+            data-toggle="tab"
+            >babeljs</a
+          >
+        </li>
+        <li role="presentation">
+          <a href="#react" aria-controls="react" role="tab" data-toggle="tab"
+            >react</a
+          >
+        </li>
+        <li role="presentation">
+          <a
+            href="#typescript"
+            aria-controls="typescript"
+            role="tab"
+            data-toggle="tab"
+            >typescript</a
+          >
+        </li>
+        <li role="presentation">
+          <a href="#boot" aria-controls="boot" role="tab" data-toggle="tab"
+            >boot</a
+          >
+        </li>
+      </ul>
+
+      <!-- 标签内容 -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="babeljs">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-7">
+                <h4>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius
+                  voluptatem repellendus explicabo, doloribus provident iusto?
+                  Recusandae, omnis quisquam. Adipisci reiciendis aliquid
+                  temporibus rerum cum officiis iure voluptate, earum accusamus
+                  iusto!
+                </h4>
+              </div>
+              <div class="col-md-5">
+                <img src="./img/babeljs.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="react">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-5">
+                <img src="./img/react.png" alt="" />
+              </div>
+              <div class="col-md-7">
+                <h4>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius
+                  voluptatem repellendus explicabo, doloribus provident iusto?
+                  Recusandae, omnis quisquam. Adipisci reiciendis aliquid
+                  temporibus rerum cum officiis iure voluptate, earum accusamus
+                  iusto!
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="typescript">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-7">
+                <h4>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius
+                  voluptatem repellendus explicabo, doloribus provident iusto?
+                  Recusandae, omnis quisquam. Adipisci reiciendis aliquid
+                  temporibus rerum cum officiis iure voluptate, earum accusamus
+                  iusto!
+                </h4>
+              </div>
+              <div class="col-md-5">
+                <img src="./img/typescript.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="boot">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-5">
+                <img src="./img/boot.png" alt="" />
+              </div>
+              <div class="col-md-7">
+                <h4>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius
+                  voluptatem repellendus explicabo, doloribus provident iusto?
+                  Recusandae, omnis quisquam. Adipisci reiciendis aliquid
+                  temporibus rerum cum officiis iure voluptate, earum accusamus
+                  iusto!
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 版权 -->
+    <div class="container">&copy;yang</div>
+
+    <!-- 模态框 -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            <p>模态框 &hellip;</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Close
+            </button>
+          </div>
+        </div>
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+  </body>
+  <!-- <script type="text/javascript" src="./js/jquery-1.12.4.js"></script> -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.0/jquery.min.js"
+  ></script>
+
+  <!-- https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js -->
+  <script type="text/javascript" src="./js/bootstrap.js"></script>
+  <script>
+    // //   可以通过style控制轮播效果，也可以通过js、jQuery控制轮播效果
+    //   $(function (){
+    //      $('.carousel').carousel({
+    //          interval:2000,//控制时间
+    //          pause:null,//鼠标放上去是否移动
+    //          wrap:false
+    //      })
+
+    $("#damu-nav > li > a").click(function (e) {
+      var href = $(this).attr("href");
+      console.log("a[href=" + href + "]");
+      //    使用该方法，jQuery的版本不能太高
+      $("a[href=" + href + "]").tab("show");
+      $(document).scrollTop($("#damu-tab").offset().top);
+      e.preventDefault();
+    });
+  </script>
+</html>

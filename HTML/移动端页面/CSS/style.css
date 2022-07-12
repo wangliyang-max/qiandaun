@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.w,
+.top-bar,
+.banner,
+.menu,
+.course-list {
+  width: 6.93rem;
+  margin: 0 auto;
+}
+html {
+  font-size: 13.33333333vw !important;
+  background-color: #eff0f4;
+}
+a {
+  text-decoration: none;
+}
+.top-bar {
+  font-size: 0;
+  display: flex;
+  height: 1.75rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-bar a {
+  color: #242526;
+  font-size: 0.5rem;
+}
+.top-bar a i {
+  color: #999;
+  font-size: 0.5rem;
+}
+.banner img {
+  width: 100%;
+  border-radius: 5px;
+}
+.menu {
+  height: 3.29rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-evenly;
+}
+.menu a {
+  width: 3.27rem;
+  height: 1.04rem;
+  line-height: 1.04rem;
+  color: white;
+  border-radius: 5px;
+  font-size: 22px;
+}
+.menu a i {
+  margin: 0 0.2rem 0 0.38rem;
+}
+.menu .course {
+  background-color: #f97053;
+}
+.menu .star {
+  background-color: #cd6efe;
+}
+.menu .sub {
+  background-color: #FF5070;
+}
+.menu .download {
+  background-color: #1bc4fb;
+}
+.course-list {
+  height: 3.94rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  margin-bottom: 0.46rem;
+}
+.course-list .title {
+  display: flex;
+  font-size: 16px;
+  justify-content: space-between;
+  align-items: center;
+}
+.course-list .title h2 {
+  font-size: 0.33rem;
+  color: #24253d;
+  border-left: 2px solid #1bc4fb;
+  padding-left: 4px;
+}
+.course-list .title a {
+  font-size: 0.28rem;
+  color: #656565;
+}
+.item-list {
+  width: 7.2rem;
+  display: flex;
+  justify-content: space-between;
+  overflow: auto;
+}
+.item {
+  flex: none;
+  width: 3.2rem;
+  height: 3.24rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  padding: 0 0.22rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+}
+.item img {
+  width: 100%;
+}
+.item .course-title {
+  font-size: 0.32rem;
+  color: #24253d;
+}
+.item .user-info {
+  display: flex;
+  align-items: center;
+}
+.item .avatar {
+  font-size: 0;
+  width: 0.42rem;
+  height: 0.42rem;
+}
+.item .nickname {
+  margin-left: 6px;
+  font-size: 0.24rem;
+  color: #969696;
+}
+/*# sourceMappingURL=./style.css.map */

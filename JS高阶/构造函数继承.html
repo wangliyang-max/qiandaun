@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Person (name ,age){
+           this.name = name
+           this.age =age
+        }
+        Person.prototype.setName=function(name){
+            this.name = name
+        }
+
+
+        function Student (name,age,price){
+            // 借用父类型构造函数初始化相同属性
+            Person.call(this,name,age)  
+            this.price = price
+        }
+        // 继承原型链，继承父类型对象的方法继承
+        Student.prototype = new Person()
+        // 修正constructor属性
+        Student.prototype.constructor =Student
+
+        Student.prototype.setPrice=function(price){
+            this.setPrice = price
+        }
+        var s = new Student('Tom',24,10000)
+        s.setName('Bob')
+        s.setPrice(16000)
+        console.log(s.name,s.age,s.price)
+        
+
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload=function(){
+        var btn = document.getElementById("btn1");
+        var ul =document.getElementsByTagName("ul")[0];
+        btn.onclick = function(){
+            var li =document.createElement("li");
+            li.innerHTML="<a href='javascript:;''>添加的超链接</a>";
+            ul.appendChild(li);
+        }
+
+
+    //    为ul绑定响应函数
+        ul.onclick = function(event){
+            event = event || window.event; 
+            // target:event中的target表示的触发事件的对象
+           if(event.target.className == "link"){
+                alert("ul的单击响应函数");
+           }
+        }
+    
+        }
+
+    </script>
+</head>
+<body>
+    <button id="btn1">添加一个超链接</button>
+    <ul id="ul">
+        <li><a href="javascript:;" class="link">超链接一</a></li>
+        <li><a href="javascript:;" class="link">超链接二</a></li>
+        <li><a href="javascript:;" class="link">超链接三</a></li>
+    </ul>
+    
+</body>
+</html>

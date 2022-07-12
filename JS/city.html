@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        function myClick(idname,fun){
+            var btn = document.getElementById(idname);
+            btn.onclick = fun;
+        }
+         window.onload = function(){
+            //创建广州结点
+            myClick("btn1",function(){
+               
+                //1. 创建li元素节点
+                var li = document.createElement("li");
+
+                //2. 创建广州文本节点
+                var text = document.createTextNode("广州");
+
+                //3. 建立两者联系(认亲)
+                li.appendChild(text);
+
+                //4.将广州添加到city下
+                var city = document.querySelectorAll("#city ul")[0];
+                city.appendChild(li);
+
+            });
+
+            // 将广州添加到北京前面
+            myClick("btn2",function(){
+                // 创建广州
+                var li = document.createElement("li");
+                var text = document.createTextNode("广州");
+                li.append(text);
+
+                // 获取北京
+                var bj = document.querySelector("#bj");
+
+                // 插入
+                var city = document.querySelectorAll("#city ul")[0];
+                city.insertBefore(li,bj);
+            });
+
+            // 使用广州替换北京
+            myClick("btn3",function(){
+                var li =document.createElement("li");
+                var text = document.createTextNode("广州");
+                li.append(text);
+
+                var city = document.querySelectorAll("#city ul")[0];
+                city.replaceChild(li,bj);
+            })
+
+            // 删除北京
+            myClick("btn4",function(){
+                var bj = document.getElementById("bj");
+               bj.parentNode.removeChild(bj);
+            })
+
+            // 修改首尔为昌平
+            myClick("btn5",function(){
+                var se = document.getElementById("se");
+               se.innerHTML = "昌平";
+            })
+
+            // 使用innerHTML添加广州
+            myClick("btn6",function(){
+                var city = document.querySelectorAll("#city ul")[0];
+                city.innerHTML += "<li>广州</li>";
+            })
+
+             // innerHTML和createElement结合使用添加添加广州
+            myClick("btn7",function(){
+                // createElement创建元素
+                var li = document.createElement("li");
+                // innerHTML添加文本
+                li.innerHTML = "广州";
+                // 将li添加到city中
+                var city = document.querySelectorAll("#city ul")[0];
+                city.appendChild(li);
+            })
+
+
+
+        }
+
+
+    </script>
+</head>
+<body>
+<div id = "city">
+    <ul>
+        <li id = "bj">北京</li>
+        <li id = "sh">上海</li>
+        <li id = "dj">东京</li>
+        <li id = "se">首尔</li>
+    </ul>
+
+</div>
+    <button id = "btn1">点击添加广州元素节点</button>
+    <br><br>
+    <button id = "btn2">点击将广州添加到北京前面</button>
+     <br><br>
+    <button id = "btn3">点击将北京替换为广州</button>
+     <br><br>
+    <button id = "btn4">点击删除北京</button>
+     <br><br>
+    <button id = "btn5">点击将首尔换成昌平</button>  
+     <br><br>
+    <button id = "btn6">使用InnerHTML添加广州</button>  
+      <br><br>
+    <button id = "btn7">使用InnerHTML和createElement添加广州（推荐使用）</button>  
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+    </style>
+    <script>
+        window.onload = function(){
+        var input = document.getElementsByTagName("input")[0];
+        input[0];
+        input.onkeydown= function(event){
+            event = event || window.event;
+            if(event.keyCode >= 48 && event.keyCode <=57){
+                return false;
+            }
+            /*
+            在文本框中输入内容，属于onkeydown的默认行为
+            如果在onkeydown中取消了默认行为，则输入的内容，不会出现在文本框中*/
+            // return false;
+        }
+        }
+       
+    </script>
+  
+</head>
+<body>
+    <input type="text">
+    
+</body>
+</html>

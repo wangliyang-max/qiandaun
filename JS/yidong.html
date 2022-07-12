@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: rosybrown;
+            /* 开启定位才能移动 */
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            // 直接绑定给doument
+            document.onmousemove =function(event){
+                event = event || window.event;
+                // 获取滚动条滚动距离
+                // 滚动条是谁的？火狐认为是html的，chrome认为是body的
+                // var scrollTop = document.body.scrollTop;
+                // html：document.documentElement
+                // var scrollTop = document.documentElement.scrollTop;
+                var scrollTop = document.body.scrollTop||document.documentElement.scrollTop;
+                var scrollLeft = document.body.scrollLeft||document.documentElement.scrollLeft;
+            
+                var left = event.clientX+scrollLeft;
+                var top = event.clientY+scrollTop;
+                
+                //设置 box1的位置
+                box1.style.left = left +"px";
+                box1.style.top = top+ "px";
+
+            }
+
+        }
+
+    </script>
+  
+</head>
+<body style="height: 1000px;width: 2000px;">
+    <div id = "box1"></div>
+    
+</body>
+</html>

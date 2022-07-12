@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多库共存</title>
+</head>
+<body>
+     <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script type='text/javascript' src='./jquery库/myJs.js'></script> 
+    <script>
+        // 释放jQuery的$使用权
+        jQuery.noConflict()
+        // 调用 myJS的$
+        $()
+        // 使用jQuery调用jQuery的功能
+        jQuery(function (){
+           console.log("+++++")
+        })
+        console.log("-----")
+        
+    </script>
+    
+</body>
+</html>

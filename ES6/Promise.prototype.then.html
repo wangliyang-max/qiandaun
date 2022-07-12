@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+       // 实例化Promise对象
+        const p = new Promise((resolve,reject)=>{
+            setTimeout(()=>{   
+            resolve('用户数据')
+            // reject('失败')
+            },1000)   
+        });
+
+        const result = p.then(value=>{
+        console.log(value) 
+         throw new Error('出错啦')
+        },reason=>{
+           console.error(reason) 
+           return 456 
+        })
+
+        console.log(result)
+
+
+        p.then(
+        value=>{},
+        reason=>{}
+        ).then(
+        value=>{},
+        reason=>{}
+        )
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$_工具方法</title>
+</head>
+<body>
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script>
+        // $.each():遍历数组或对象中的数据
+        var obj ={
+            name:'Tpm',
+            setName:function(name){
+                this.name = name
+            }
+        }
+        $.each(obj,function (key,value){
+           console.log(key,value)
+        })
+        // $ .trim():去除字符串两边的空格
+        // $. type(obj):得到数据的类型
+        console.log($.type($))
+        
+        // $ .isArray(obj):判断是否是数组
+        console.log($.isArray($('body')),$.isArray([1,2,3]))
+        
+        // $ .isFunction(obj):判断是否是函数
+        console.log($.isFunction($))
+        
+        // $ .parseJSON(json) :解析json字符串转换为js对象/数组
+        var json = '{"name":"tom","age":12}'
+        //json对象 ==> JS对象
+        console.log($.parseJSON(json))
+
+        json = '[{"name":"tom","age":12},{"name":"Jack","age":13}]'
+         //json数组 ==> JS数组
+        console.log($.parseJSON(json))
+
+        
+    </script>
+    
+</body>
+</html>

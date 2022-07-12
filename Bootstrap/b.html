@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <script>
+        window.onload=function(){
+            var inner = document.getElementById('inner')
+            var com = getComputedStyle(inner)
+            console.log(com.marginRight)
+            var outer = document.getElementById('outer')
+            var com1 = getComputedStyle(outer)
+            console.log(com1.width)
+        }
+    </script>
+    <style>
+        .outer{
+            display: inline-block;
+            width: 800px;
+            height: 200px;
+            border:10px rgb(202, 115, 115) solid;
+        }
+        .inner{
+            width: 900px;
+            height: 200px; 
+            background-color:darkslateblue;
+        }
+        .box3{
+            display: inline-block;
+            width: 100px;
+            height: 200px;
+            background-color: brown;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="outer" id='outer'>
+        <div class="inner" id='inner'>
+        </div>
+    </div>
+    <div class="box3"></div>
+    
+    
+</body>
+</html>
+

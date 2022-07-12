@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        var num =1;
+        // 定时调用：每隔一段时间执行一次，调用多次
+        setInterval(function(){
+            alert(num++);
+        },3000);
+        // 延时调用：一个函数不马上执行隔一段时间才执行，执行且只执行一次
+        var timer =setTimeout(function(){
+            alert(num++);
+        },3000);
+        clearTimeout(timer);//关闭延时调用
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

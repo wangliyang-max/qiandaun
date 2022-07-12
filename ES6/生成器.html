@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        function * gen(){
+           console.log('一只没有耳朵')
+           yield '1';
+           console.log('一只没有尾巴')
+           yield '2';
+           console.log('真奇怪')
+           yield '3';
+           console.log('真奇怪')
+        }
+        for(let v of gen()){   
+        }
+        console.log('--------------------------')
+
+        for(let v of gen()){ 
+            console.log(v)
+        }
+        
+    </script>
+</body>
+</html>

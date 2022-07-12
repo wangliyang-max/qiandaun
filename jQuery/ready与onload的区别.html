@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ready与onload的区别</title>
+</head>
+<body>
+    <img id="logo" src="https://hbimg.huaban.com/d04baf66dcafffb0fadd5a92b87ad22e66c20e6710b3df-Mt15tL_fw658/format/webp">
+   
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+     <script>
+// 1．直接打印img的宽度,观察其值
+        console.log("直接：",$('#logo').width())       
+// 2．在$(function())中打印img的宽度
+         $(function  (){
+             console.log("ready：",$('#logo').width())   
+         })
+// 3．在window.onLoad 中打印宽度
+          window.onload =function(){
+            console.log("onload：",$('#logo').width())       
+         }
+
+// 4．在img加载完成后打印宽度
+         $('#logo').on('load',function (){
+            console.log("img load：",$(this).width())
+         })
+
+         
+
+     </script>
+    
+</body>
+</html>

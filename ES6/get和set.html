@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <script>
+        class Phone{
+            // 没有构造函数是合法的
+
+            // 只要读取size属性就会执行get方法
+            get price(){
+                console.log("价格属性被读取")
+                // 该函数的返回值就是属性的值
+                return 'yang'
+            }
+            // 只要给size属性赋值就会执行set方法
+            set price(newVal){
+                // set必须有参数
+                console.log('价格属性被修改了')
+            }
+        }
+        let s=new Phone();
+        console.log(s.price)  
+        s.price = 'free'
+
+    </script>
+</body>
+</html>

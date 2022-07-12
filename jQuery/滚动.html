@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动</title>
+</head>
+<body style="height: 2000px;">
+    <div style="border:khaki 2px solid;width:200px;height: 400px;overflow: auto;">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos officiis adipisci nobis doloremque explicabo at porro nostrum iste consequatur id, ipsa quos esse, dignissimos hic a dicta enim aspernatur officia.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam, recusandae temporibus. Laborum quidem ab tenetur ad placeat laudantium, sapiente ea expedita voluptate odio cumque, eum omnis, fugiat at iusto sit.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo porro cumque optio reiciendis provident, magnam dolorem nisi, veritatis, magni sequi explicabo voluptatem in placeat soluta maxime tempore quas inventore vel.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eligendi mollitia repudiandae dolores deserunt architecto? Consequatur animi esse sequi nemo, libero commodi, fugiat accusantium sed similique explicabo, itaque error excepturi minus.
+    </div>
+    <br>
+    <button id='btn1'>得到scrollTop</button>
+    <button id='btn2'>设置scrollTop</button>
+   
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script>
+        // 得到div或页面滚动条的坐标
+       $('#btn1').click(function (){
+          console.log($('div').scrollTop())
+          console.log('网页滚动条'+$('html').scrollTop())
+          
+       }) 
+        // i让div或页面的滚动条滚动到指定位置
+        $('#btn2').click(function (){
+           $('div').scrollTop(200)
+           $('html').scrollTop(200)
+        })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #areaDiv{
+            height: 200px;
+            width: 500px;
+            border: rosybrown 1px solid;
+        }
+        #showMsg{
+            height: 100px;
+            width: 500px;
+            border: rosybrown 1px solid;
+            line-height: 100px;/*值与父元素高度相等*/
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+        var areaDiv = document.getElementById("areaDiv");
+        var showMsg = document.getElementById("showMsg");
+
+        areaDiv.onmousemove = function(){
+
+            if(!event){
+                event = window.event;
+            }
+
+         
+           var x = event.clientX;
+           var y = event.clientY;
+           showMsg.innerHTML = "x="+x+", y="+y;
+
+        }
+        }
+        
+
+    </script>
+</head>
+<body>
+   <div id="areaDiv"></div>
+   <br>
+   <div id="showMsg"></div> 
+    
+</body>
+</html>

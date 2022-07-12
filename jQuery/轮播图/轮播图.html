@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #outer {
+        width: 520px;
+        height: 333px;
+        margin: 50px auto;
+        background-color: rosybrown;
+        padding: 10px 0px;
+        position: relative;
+        /* 裁剪溢出的内容 */
+        overflow: hidden;
+      }
+      img {
+        width: 500px;
+        height: 333px;
+        object-fit: cover;
+      }
+      #imgList {
+        list-style: none;
+        width: 3640px;
+        position: absolute;
+        /* 偏移量 */
+        left: 0px;
+      }
+      #imgList li {
+        float: left;
+        margin: 0 10px;
+      }
+      #navDiv {
+        /* 开启绝对定位 */
+        position: absolute;
+        bottom: 15px;
+        /* 设置left:
+        outer : 520px
+        navDiv = 25*5 = 125 
+        (520-125)/2 = 197.5
+        */
+        /* 但是不应该写死，使用JS进行计算 */
+        left: 197px;
+      }
+      #navDiv a {
+        /* //浮动:内联元素变成块元素 */
+        float: left;
+        width: 15px;
+        height: 15px;
+        background-color: rgb(131, 25, 57);
+        margin: 0 5px;
+        opacity: 0.5;
+        /* IE8透明 */
+        filter: alpha(opacity = 50);
+      }
+      #navDiv a:hover {
+        background-color: white;
+      }
+      #navDiv a.on{
+        background-color: white;
+      }
+
+
+      #outer>a{
+        position: absolute;
+        font-size: 50px;
+        text-decoration: none;
+        color: rgb(83, 83, 83);
+
+        height: 70px;
+        top:0;
+        bottom: 0;
+        margin-top:auto;
+        margin-bottom:auto;
+        display: none;
+
+      }
+      #outer>a:hover{
+         background-color: rgba(105, 105, 105, 0.2);
+      }
+       #outer #prev{
+        left: 10px;
+      }
+       #outer #next{
+        right: 10px;
+      } 
+
+      #outer:hover a{
+        display: block;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="outer">
+      <ul id="imgList" style="left: -520px;">
+        <li><img src="img/5.jpg" /></li>
+        <li><img src="img/1.jpg" /></li>
+        <li><img src="img/2.jpg" /></li>
+        <li><img src="img/3.jpg" /></li>
+        <li><img src="img/4.jpg" /></li>
+        <li><img src="img/5.jpg" /></li>
+        <!-- 最后一张和第一张一样，实现轮播效果 -->
+        <li><img src="img/1.jpg" /></li>
+      </ul>
+
+      <!-- 导航按钮 -->
+      <div id="navDiv">
+        <a href="javascript:;" class="on"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+      </div>
+
+      <a href="javascript:;" id='prev'class="arrow"><</a>
+      <a href="javascript:;" id='next'class="arrow">></a>
+    </div>
+
+    <script type='text/javascript' src='../jquery库/jquery-1.12.4.js'></script>
+    <script type='text/javascript' src='./app.js'></script>
+  </body>
+</html>

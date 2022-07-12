@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type = "text/javascript">
+        window.onload = function(){
+
+            
+            // 获取box1中所有的div
+            // 通过css选择器的方法获取div：  .box1 div
+            // document.querySelector() :需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象
+            var div = document.querySelector(".box1 div");
+            alert(div.innerHTML);
+
+            // 也可以直接查找class
+            var box1 = document.querySelector(".box1");
+
+             // 也可以直接查找id
+            var box1 = document.querySelector("#box1");
+
+             // 也可以直接查找标签
+            var box1 = document.querySelectorAll("div");
+            
+
+        }
+    </script>
+
+</head>
+<body>
+    <div class = "box1">
+        <div>box1</div>
+    </div>
+     <div></div>
+    
+</body>
+</html>

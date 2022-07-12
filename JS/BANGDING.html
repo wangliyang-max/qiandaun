@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload= function(){
+            var btn = document.getElementById("btn");
+            bind(btn,"click",function(){
+                alert("hello");
+            })
+     
+            /*
+            addEventListener()中的this，是绑定事件的对象attachEvent()中的this，是window;需要统一两个方法this*/
+            /*
+            obj:要绑定的事件
+            eventStr 事件的字符串(不要on)
+            callback 回调函数
+            */
+           function bind(obj, eventStr, callback){
+
+            if(obj.addEventListener){
+            //    大部分浏览器兼容的方式
+            obj.addEventListener(eventStr, callback, false);
+            }else{
+            // IE8及以下
+            obj.attachEvent("on"+eventStr, function(){
+                callback.call(obj);
+            });
+
+            // 修改this的方法：
+            // 在匿名函数中调用callback（），拿回函数的调用权
+            // 再通过call(对象)替换this
+
+            }
+           } 
+        }
+    </script>
+
+</head>
+<body>
+    <button id="btn">点我看看</button>
+    
+</body>
+</html>

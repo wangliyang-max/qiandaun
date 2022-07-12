@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+        console.log()
+        console.log()
+        function fun (){
+           
+        }
+ 
+        
+    </script>
+  </head>
+
+  <body>
+    <button id="btn">点我试试</button>
+    <script>
+      function Person(color) {
+        console.log(this);
+        this.color = color;
+        this.getColor = function () {
+          console.log(this);
+          return this.color;
+        };
+        this.setColor = function (color) {
+          console.log(this);
+          this.color = color;
+        };
+      }
+      // 当作函数
+      Person("red"); //this 是 window,以函数形式调用时， this永远都是window
+
+      // 当作构造函数
+      var p = new Person("yellow"); //this 是 p
+      p.getColor(); //this 是 p
+
+      var obj = {};
+      p.setColor.call(obj, "black"); //this 是 obj
+
+      var test = p.setColor;
+      test(); //this 是 window
+
+      function fun1() {
+        function fun2() {
+          console.log(this); //this 是 window
+        }
+      }
+
+      var a = 3;
+      [1, 2].forEach(function () {});
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        class Person{
+            // 共有属性：直接写
+            name;
+            // 私有属性
+            #age;
+            #weight;
+            // 构造方法
+            constructor(name,age,weigth){
+                this.name = name;
+                this.#age =age;
+                this.#weight=weigth
+            }
+            getWeigth(){
+                return this.#weight
+            }
+            getAge(){
+                return this.#age
+            }
+        }
+        // 实例化
+        const girl = new Person('小红',18,'45kg')
+        console.log(girl)
+        console.log(girl.name)
+        console.log(girl.age)
+        console.log(girl.weight)
+        console.log(girl.getAge())
+        console.log(girl.getWeigth())
+        
+    </script>
+</body>
+</html>

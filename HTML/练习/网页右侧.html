@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>网易新闻列表</title>
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        body{
+             background-color: rosybrown;
+        }
+        a{
+             text-decoration: none;
+        }
+        .news{
+            width: 300px;
+            height: 548px;
+            background-color: whitesmoke;
+            margin: 50px auto;
+            border-top:2px solid rgb(184, 184, 184) ;
+        }
+        .news-title{
+            display: inline-block;
+            height: 40px;
+            border-top: 2px red solid;
+            margin-top:  -2px;
+            padding-top: 10px;
+        }
+        .news-title a{
+            color:black;
+            /*设置文字加粗效果 */
+            font-weight: bold;
+
+        }
+        .news-img{
+            height: 300px;
+
+        }
+        .news-img .img-title{
+            /* width: 150px; */
+            margin-top: -30px;
+            color: black; 
+            font-weight: bold;
+            /* margin-right: auto;
+            margin-left: auto;       */
+        }
+        .news-img a{
+            /* 居中 */
+           text-align: center;
+        }
+
+        .news-list{
+            margin-top: 20px;
+            padding-left: 14px;
+        }
+        .news-list li{
+            margin-bottom: 17px;
+        }
+        .news-list li a{
+            font-size: 14px;
+            color: #666;
+        }
+        .news-list li a:hover{
+            color: red;
+        }
+
+        .news-list li::before{
+            content: '■';
+            color: rgb(214, 214, 214);
+            font-size: 12px;
+            margin-right: 3px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="news">
+      <h2 class="news-title"><a href="#">体育</a></h3>
+      <div class="news-img">
+        <a href="#">
+          <img src="../IMG/4.jpg" alt="篮球" />
+          <h3 class="img-title">李宁 吸湿PU 篮球</h3>
+        </a>
+      </div>
+      <ul class="news-list">
+        <li><a href=""> PU材质，防滑耐磨。</a></li>
+        <li>
+          <a href="">
+            这款篮球采用PU材质，具有良好的防滑性，让你轻松应对各种场地。
+          </a>
+        </li>
+        <li><a href=""> 另外，搭载防滑耐磨的中胎，能够有效的减少漏气</a></li>
+        <li><a href=""> 让你的运动更加的安全</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

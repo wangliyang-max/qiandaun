@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <form action="1.HTML">
+      <!-- 文本框 -->
+      <!-- 数据提交到服务器上必须为元素指定name属性，这样服务器才方便处理数据 -->
+      <!-- 向服务器传值的格式： name = value -->
+      文本框：<input type="text" name="username" />
+      <br>
+
+      <!-- 密码框 -->
+      密码：<input type="password" name="password" />
+      <br>
+
+      <!-- 单选按钮 —— 选择框-->
+      <!-- 需要有相同的name属性将单选框绑定到一起 -->
+      <!-- 需要指定value属性，方便向服务器传值，选中谁就将谁的value传过去 -->
+      <!-- checked默认选中 -->
+      单选框<input type="radio" name="hello" value="a" checked />
+      <input type="radio" name="hello" value="b" />
+      <br>
+
+      <!-- 多选框  —— 选择框-->
+      <!-- 需要有相同的name属性将多选框绑定到一起 -->
+      <!-- 需要指定value属性，方便向服务器传值，选中谁就将谁的value传过去 -->
+      多选框<input type="checkbox" name="hello1" value="1" checked />
+      <input type="checkbox" name="hello1" value="2" />
+      <input type="checkbox" name="hello1" value="3" />
+      <input type="checkbox" name="hello1" value="4" />
+      <br>
+
+      <!-- 下拉列表 -->
+      <!-- option表示每个下拉选项 -->
+      <select name="select" id="">
+        <option value="1">选项一</option>
+        <option selected value="2">选项二</option>
+        <option value="3">选项三</option>
+      </select>
+
+
+    <br>
+     <input type="color">
+      <input type="email">
+      <br>
+         <br>
+            <br>
+
+      <!-- 提交按钮 -->
+      <!-- value表示提交按钮上显示的内容 -->
+      <input type="submit" value="注册" />
+       <!-- 重置按钮 -->
+      <input type="reset">
+       <!-- 普通按钮 -->
+      <input type="button" value="按钮">
+     
+      <br>
+      <br>
+
+      <button type="submit">提交</button>
+      <button type="reset">重置</button>
+      <button type="button">按钮</button>
+
+    </form>
+  </body>
+</html> 

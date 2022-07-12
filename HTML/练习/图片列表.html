@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        body{
+            background-color: rosybrown;
+        }
+        ul{
+            width: 200px;
+            height: 500px;
+            /* 裁剪 */
+            overflow: hidden;
+            margin: 50px auto;
+        }
+        /* .img-list li{
+             margin-bottom: 10px;
+        } */
+         .img-list li:not(:last-child){
+             margin-bottom: 10px;
+        }
+        .img-list img{
+            width: 196px;
+            /* 高度自适应 */
+            border: black 2px solid;
+           
+        }
+    </style>
+
+
+</head>
+<body>
+    <ul class="img-list">
+        <li><a href="javascript:;"><img src="../IMG/1.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="../IMG/2.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="../IMG/3.png" alt=""></a></li>
+    </ul>
+</body>
+</html>

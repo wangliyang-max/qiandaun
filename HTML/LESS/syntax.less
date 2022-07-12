@@ -1,0 +1,81 @@
+.box1 {
+
+    // 后代元素
+    .box2 {
+        color: red;
+    }
+
+    // 子元素
+    >.box3 {
+        color: rosybrown;
+    }
+
+    // hover
+    // &: 表示外层的父元素
+    &:hover {
+        background-color: darkseagreen;
+    }
+
+    &-color {
+        background-color: darksalmon;
+    }
+}
+
+
+// extend，一个样式可以直接引用并扩展另一个样式——选择器分组
+.p1 {
+    width: 100px;
+    height: 100px;
+}
+
+.p2:extend(.p1) {
+    color: darkslategray;
+}
+
+.p3:extend(.box1 > .box3) {
+    width: 3px;
+    height: 3px;
+}
+
+// 第二种扩展
+// 直接对指定的样式进行引用，这实际上就是将样式进行了复制，又叫mixin混合
+.p4 {
+    // 这里就相当于将p1的样式在这里进行了复制
+    .p1();
+}
+
+// mixin混合可以单独做复制用，使用方法就是在选择器后面添加一个括号
+.p5() {
+    width: 100px;
+    height: 100px;
+    background-color: goldenrod;
+}
+
+.p6 {
+    .p5();
+    // 也可以不加括号直接写.p5;
+}
+
+// 混合函数的使用
+.text(@w,@h,@bg-color){
+    width: @w;
+    height: @h;
+    border: 1px solid @bg-color;
+}
+// 可以指定初始值
+.text1(@w: 100px, @h: 200px, @bg-color:orange)
+{
+    width: @w;
+    height: @h;
+    border: 1px solid @bg-color;
+}
+div{
+    // 传参
+    // 按顺序写参数
+    .text(200px,300px,red);
+    // 或指定名称写参数，这样就不用管顺序了
+    .text1(@w:300px,@h:200px,@bg-color:yellow);
+}
+span {
+    color:average(red, yellow);
+}

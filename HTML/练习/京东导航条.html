@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../font/css/all.css" />
+    <style>
+      /* 解决高度塌陷 */
+      .clearfix::before,
+      .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      body {
+        font: 12px/1.5 Microsoft YaHei, Heiti SC, tahoma, arial,
+          Hiragino Sans GB, "宋体", sans-serif;
+      }
+      .top-bar-wrapper {
+        height: 30px;
+        width: 100%;
+        background-color: #e3e4e5;
+        /* 设置行高，使文字垂直居中 */
+        line-height: 30px;
+        border-bottom: 1px solid #ddd;
+      }
+      .top-bar {
+        width: 1000px;
+        margin: 0 auto;
+        /* background-color: burlywood; */
+        /* 为city-list提供参照 */
+        position: relative;
+      }
+      .top-bar a,
+      .top-bar span,
+      .top-bar i {
+        color: #999;
+        text-decoration: none;
+      }
+      .top-bar a:hover,
+      .top-bar a.hightlight {
+        color: #f10215;
+      }
+      .location {
+        float: left;
+        /* background-color: tomato; */
+      }
+      .location .fas {
+        color: #f10215;
+        font-size: 14px;
+      }
+
+      .location .city-list {
+        width: 200px;
+        height: 436px;
+        background-color: white;
+        border: 1px solid rgb(204, 204, 204);
+        display: none;
+        /* 绝对定位，使之不占用父元素位置 */
+        position: absolute;
+        z-index: 999;
+        top:31px;
+
+        /* 阴影 */
+        box-shadow: 0 2px 2px rgb(0,0,0,0.3);
+      }
+      /* 应该把悬浮效果给location外层容器,父元素 */
+      .location:hover .city-list {
+        display: block;
+      }
+      .current-city{
+        padding: 0px 10px;
+        position: relative;
+        z-index: 1000;
+        border: 1px solid transparent;
+        border-bottom: none;
+      }
+      .location:hover .current-city{
+        background-color: white;
+        border: 1px solid rgb(204, 204, 204);
+        border-bottom: none;
+        /*  为了遮住下面的元素 */
+        padding-bottom: 1px;
+      }
+
+      .shortcut {
+        float: right;
+      }
+      .shortcut .line {
+        width: 1px;
+        height: 10px;
+        background-color: #999;
+        /* 上下居中，左右拉出外边距 */
+        margin: 12px 12px 0px;
+      }
+      .shortcut li {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 外围容器 -->
+    <div class="top-bar-wrapper">
+      <!-- 内围容器 -->
+      <div class="top-bar clearfix">
+        <!-- 左侧菜单 -->
+        <div class="location">
+          <div class="current-city">
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="javascript:;">北京</a>
+          </div>
+
+          <!-- 放置城市列表 -->
+          <div class="city-list"></div>
+        </div>
+        <!-- 右侧菜单 -->
+        <ul class="shortcut">
+          <li>
+            <a href="javascript:;">您好，请登录</a>
+            <a href="javascript:;" class="hightlight">免费注册</a>
+          </li>
+
+          <li class="line"></li>
+          <li>
+            <a href="javascript:;">我的订单</a>
+          </li>
+
+          <li class="line"></li>
+          <li>
+            <a href="javascript:;">我的京东</a>
+            <i class="fas fa-angle-down"></i>
+          </li>
+
+          <li class="line"></li>
+          <li>
+            <a href="javascript:;">京东会员</a>
+          </li>
+
+          <li class="line"></li>
+          <li>
+            <a href="javascript:;" class="hightlight">企业采购</a>
+            <i class="fas fa-angle-down"></i>
+          </li>
+
+          <li class="line"></li>
+          <li>
+            <span>客户服务</span>
+            <i class="fas fa-angle-down"></i>
+          </li>
+
+          <li class="line"></li>
+          <li>
+            <span>网页导航</span>
+            <i class="fas fa-angle-down"></i>
+          </li>
+
+          <li class="line"></li>
+          <li>
+            <span>手机京东</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

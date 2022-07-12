@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../reset.css">
+    <style>
+        .img-list{
+            width: 480px;
+            height: 850px;
+            margin: 0 auto;
+            /* 为a提供参照 */
+            position:relative;
+        }
+        img{
+            width: 480px;
+            height: 850px;
+            object-fit: cover;
+        }
+        .img-list li{
+            /* 开启绝对定位使之可以设置 z-index */
+            position: absolute;
+        }
+        .img-list li:nth-child(3){
+            z-index: 1;
+        }
+        .pointer{
+            /* 开启绝对定位放在上面 */
+            position: absolute;
+            z-index: 999;
+            bottom: 40px;
+            margin-left: 140px;
+        }
+        .pointer a{
+            /* display: block; */
+            /* 横向排列 */
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: salmon;
+            margin-left: 20px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+
+
+            /*默认情况下background-color的颜色是会延伸到边框下面的，如果我们不想要延申，需要设置 */
+            background-clip: content-box;
+            border:2px solid transparent;
+        }
+        .pointer a.active,
+        .pointer a:hover
+        {
+            background-color: #fff;
+            border:3px solid rgba(0, 0, 0, 0.3);
+
+        }
+        
+    </style>
+    <script>
+        window.onload =function(){
+            var imgArray = ["./img/1.jpg","./img/2.jpg","./img/3.jpg","./img/4.png","./img/5.jpg"];
+            var allA =  document.getElementsByTagName("a");
+            var img = document.getElementsByTagName("img")[0];
+
+            for(var i =0 ;i<allA.length;i++){
+                allA[i].num = i;
+                allA[i].onclick=function(){
+                    // 使用this.name,！！不能使用allA[i].name,因为i此时已经等于5了。
+                    var index = this.num;
+                    img.src=imgArray[index];
+
+                     for(var j =0 ;j<allA.length;j++){
+                         allA[j].className="";
+                     }
+                    this.className = "active";
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <ul class="img-list">
+        <li><img src="./img/1.jpg" alt=""></li>
+        <!-- <li><a href="javascript:;"><img src="./img/2.jpg" alt=""></a></li>
+        <li><a href="javascript:;"><img src="./img/3.jpg" alt=""></a></li>
+        <li><a href="javascript:;"><img src="./img/4.png" alt=""></a></li>
+        <li><a href="javascript:;"><img src="./img/5.jpg" alt=""></a></li> -->
+
+        <div class="pointer">
+            <a href="javascript:;" class="active"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </ul>
+</body>
+</html>

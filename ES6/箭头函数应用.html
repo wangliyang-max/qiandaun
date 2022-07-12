@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ad{
+            width: 200px;
+            height: 200px;
+            background-color: #58a;
+        }
+    </style>
+</head>
+<body>
+    <div id='ad'></div>
+    <script>
+        // 点击div 2s后颜色变成『粉色』
+        let ad =document.getElementById('ad')
+        ad.addEventListener("click",function (){
+            // this是ad
+           setTimeout(()=>{
+               this.style.background='pink'
+           },2000)
+        })
+
+        const arr = [1,6,9,20,100,25]
+        const result = arr.filter(item=>item%2===0)
+        // 代表如果为偶数就返回true
+        console.log(result)
+        
+        
+
+    </script>
+</body>
+</html>

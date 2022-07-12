@@ -1,0 +1,27 @@
+/*
+css注释，会被解析到css文件中
+*/
+body {
+  background-color: darkseagreen;
+}
+.box1 {
+  background-color: darksalmon;
+}
+.box1 .box2 {
+  background-color: darkcyan;
+}
+.box1 .box2 .box4 {
+  background-color: darkslateblue;
+}
+.box1 .box3 {
+  background-color: darkred;
+}
+.box5 {
+  width: 100px;
+  color: red;
+}
+.box6 {
+  width: 100px;
+  /* height: $width; */
+  background-image: url("box6/1.jpg");
+}

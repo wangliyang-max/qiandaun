@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        // 发送AJAX请求,返回的结果是 Promise对象
+        function sendAJAX (url){
+        return new Promise((reslove,reject)=>{
+            //    创建对象
+        const xhr = new XMLHttpRequest();
+        // 初始化对象
+        xhr.open('GET',url)
+        // 发送
+        xhr.send()
+        // 事件绑定
+        xhr.onreadystatechange = function (){
+           if(xhr.readyState===4){
+               if(xhr.status>=200&&xhr.status<300){
+                   reslove(x.response)
+               }else{
+                   reject(x.status)
+               }
+           }
+        }
+
+        })
+        
+
+        }
+    
+        // Promise then 测试
+       sendAJAX("https://api.apiopen.top/getJoke").then(value=>{
+        console.log(value)
+       },reason =>{
+           console.log(reason)
+       })
+
+    //    async 与 await测试
+       async function main (){
+          let result = await sendAJAX("https://api.apiopen.top/getJoke")
+          console.log(result)
+       }
+       main()
+        
+    </script>
+</body>
+</html>

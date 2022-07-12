@@ -1,0 +1,37 @@
+//less注释，不会被解析到css中
+/*
+css注释，会被解析到css文件中
+*/
+body{
+    background-color: darkseagreen;
+}
+.box1 {
+    background-color: darksalmon;
+    //为box1的后代box2设置样式 
+    .box2{
+        background-color: darkcyan;
+        .box4{
+            background-color: darkslateblue;
+        }
+    }
+    .box3{
+        background-color: darkred;
+    }
+}
+
+// 存储像素
+@a:100px;
+// 存储颜色
+@b:red;
+// 存储类名
+@c:box6;
+.box5 {
+// 可以直接使用的变量，直接@变量名进行引用
+    width: @a; 
+    color:@b;
+}
+// 类名变量，或者使用一部分值之时的引用：@{变量名}
+.@{c}{
+    width: @a;
+    background-image: url("@{c}/1.jpg");
+}

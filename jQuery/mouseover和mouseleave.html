@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mouserover</title>
+    <style>
+        
+        .div1{
+            width: 300px;
+            height: 300px;
+            background-color: darkgoldenrod;
+            text-align: center;
+            display: inline-flex; 
+            justify-content: center;
+            align-items: center;
+        }
+        .div2{
+            width: 100px;
+            height: 100px;
+            background-color: darkorange;
+        }
+        .div3{
+            width: 300px;
+            height: 300px;
+            background-color:darksalmon;
+            text-align: center;
+            display: inline-flex; 
+            justify-content: center;
+            align-items: center;
+        }
+        .div4{
+            width: 100px;
+            height: 100px;
+            background-color:darkseagreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="divText">
+        区分鼠标事件
+    </div>
+    <div class="div1">
+        div1
+        <div class="div2">div2</div>
+    </div>
+    <div class="div3">
+        div3
+        <div class="div4">div4</div>
+    </div>
+
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script>
+        $('.div1').click(function (){
+           console.log('click点击1')
+        }).click(function (){
+           console.log('click点击2')
+        })
+        $('.div3').on('click',function (){
+          console.log('onclick点击1')   
+        }).on('click',function (){
+          console.log('onclick点击2')   
+        })
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            perspective: 800px;
+        }
+        body{
+           width: 500px;
+           height: 500px; 
+           /* border: goldenrod 2px solid; */
+           position: relative;
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            /* background-image: url("IMG/9.png"); */
+            background-color: coral;
+            position: absolute;
+            margin: auto auto;
+            transition: 5s;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+        body:hover .box1{
+            transform:rotateY(90deg) translateZ(300px);
+        }
+
+    </style>
+</head>
+<body>
+        <div class="box1">
+            <img src="./IMG/11.jpg" alt="">
+        </div>
+        <div class="box1">
+            <img src="./IMG/12.jpg" alt="">
+        </div>
+        <div class="box1">
+            <img src="./IMG/13.jpg" alt="">
+        </div>
+        <div class="box1">
+            <img src="./IMG/14.jpg" alt="">
+        </div>
+        <div class="box1">
+            <img src="./IMG/15.jpg" alt="">
+        </div>
+        <div class="box1">
+            <img src="./IMG/16.jpg" alt="">
+        </div>
+
+</body>
+</html>

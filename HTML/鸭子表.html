@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clock{
+            width: 500px;
+            height: 500px;
+            /* background-color: rgb(255, 233, 192); */
+            margin: 0 auto;
+            border-radius: 50%;
+            /* border:10px solid black; */
+            position: relative;
+            background-image: url("IMG/13.png");
+            background-size: cover;
+
+        }
+        .clock>div{
+             position: absolute;
+             margin: auto auto;
+             left: 0;
+             right: 0;
+             top: 0;
+             bottom: 0;
+        }
+        .hour-wrapper{
+            width:50%;
+            height:50%;
+            /* 时针60*60*12s转一圈 */
+            animation: run 43200s infinite;
+        }
+        .hour{
+            height: 50%;
+            width: 6px;
+            background-color: rgb(0, 0, 0);
+            margin: 0 auto;
+            }
+
+        .min-wrapper{
+            width:65%;
+            height:65%;
+             /* 分针60*60s转一圈 */
+            animation: run 3660s infinite;
+        }
+        .min{
+            height: 50%;
+            width: 4px;
+            background-color: rgb(0, 0, 0);
+            margin: 0 auto;
+            }
+
+        .sec-wrapper{
+            width:85%;
+            height:85%;
+            /* 秒针60s转一圈 */
+            animation: run 60s infinite steps(60);
+        }
+        .sec{
+            height: 50%;
+            width: 2px;
+            background-color: rgb(255, 0, 0);
+            margin: 0 auto;
+            }
+
+        @keyframes run{
+            from{
+                transform:rotateZ(0);
+            }
+           to{
+               transform: rotateZ(360deg);
+           }
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <!-- 时针 -->
+        <div class="hour-wrapper">
+            <div class="hour"></div>
+        </div>
+        <!-- 分针 -->
+        <div class="min-wrapper">
+            <div class="min"></div>
+        </div>
+        <!-- 秒针 -->
+        <div class="sec-wrapper">
+            <div class="sec"></div>
+        </div>
+    </div>
+   
+</body>
+</html>

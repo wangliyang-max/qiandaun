@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查找</title>
+
+</head>
+<body>
+    <div>
+        <ul>
+            <span>span文本1</span>
+            <li>AAAAA</li>
+            <li title="hello" class="box2">BBBBB</li>
+            <li class="box" id='cc'>CCCCC</li>
+            <li title="hello">DDDDDD</li>
+            <li title="two"><span>span文本2</span></li>
+            <span>span文本3</span>
+        </ul>
+        <span>span文本4</span>
+        <li>eeeee</li>
+        <li>EEEEE</li>
+        <br />
+    </div>
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script>
+        var $ul =$('ul')
+        // 1. ul 标签的第2个span子标签
+        $ul.children('span:eq(1)').css('background','red')
+        // 2. ul 标签的第2个span后代标签
+        $ul.find('span:eq(1)').css('background','yellow')
+        // 3. ul 标签的父标签
+        $ul.parent().css('background','lightblue')
+        // 4. id 为 cc 的  li  标签的前面的所有 li 标签
+        var $li = $('#cc')
+        $li.prevAll('li').css('background','lightpink')
+        // 5. id 为 cc 的 li 标签的所有兄弟 li 标签
+        $li.siblings('li').css('background','lightyellow')
+    </script>
+    
+</body>
+</html>

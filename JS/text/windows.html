@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        window.onload=function(){
+            var count = document.getElementById("count");
+            var num = 1;
+            var timer= setInterval(function(){
+                count.innerHTML = ++num;
+                if(num==11)
+                clearInterval(timer);
+            }, 100);
+            // alert(timer);
+            
+        }
+    </script>
+</head>
+<body>
+    <h1 id="count">1</h1>
+</body>
+</html>

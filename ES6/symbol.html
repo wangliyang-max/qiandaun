@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        let game = {
+            name:'俄罗斯方块',
+            [Symbol('up')]:function(){
+               console.log('改变形状') 
+            },
+            [Symbol('down')]:function(){
+               console.log('快速下降')
+            }
+        }
+        console.log(game)
+        
+    </script>
+</body>
+</html>

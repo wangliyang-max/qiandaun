@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function Phone (){
+       
+        // }
+        // // 添加的是函数属性，实例看不到
+        // Phone.name='手机'
+        // Phone.change = function (){
+        //    console.log('我可以改变世界')
+        // }
+
+        // // 添加的是原型属性，实例可以看到
+        // Phone.prototype.size = '5.5inch'
+
+        // let nokia = new Phone()
+        // // console.log(nokia.name)
+        // // nokia.change()
+        // console.log(nokia.size)
+
+
+        class Phone{
+            // 静态属性
+            static name ='手机'
+            static change(){
+              console.log('我可以改变世界')  
+            }
+        }
+       /*等价于
+        Phone.name = '手机'
+        Phone.change = function (){
+           console.log('我可以改变世界')  
+        }*/
+        let nokia = new Phone()
+        console.log(nokia.name)
+        console.log(Phone.name)
+        Phone.change()
+         
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+             /* 开启定位才能移动 !!!!!!!!!!*/
+            position: absolute;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(180, 142, 180);
+            left: 200px;
+            top: 200px;
+            position: absolute;
+        }
+
+    </style>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            drag(box1);
+            drag(box2);
+            
+
+
+            // drag:移动函数；obj:对象 
+            function drag(obj){
+
+               // 鼠标按下函数
+               obj.onmousedown = function(event){
+                event = event || window.event;
+
+                // 鼠标点击时对事件进行捕获
+                // if(box1.setCapture){
+                //      box1.setCapture();
+                // }
+            // 可以简写为
+             obj.setCapture && obj.setCapture();
+
+                
+
+                // 调整鼠标和div的位置问题
+                // div的偏移量=鼠标.clentx -元素.offsetLeft
+                // div的偏移量=鼠标.clentY -元素.offsetTop
+                var ol = event.clientX - obj.offsetLeft;
+                var ot = event.clientY - obj.offsetTop;
+
+                // onmousemove应该在onmousedown里面，点击之后才会进行拖拽
+                //鼠标移动函数： 为document绑定onmousemove
+                document.onmousemove = function(event){
+                event = event || window.event;
+                var scrollTop = document.body.scrollTop||document.documentElement.scrollTop;
+                var scrollLeft = document.body.scrollLeft||document.documentElement.scrollLeft;
+            
+                var left = event.clientX+scrollLeft - ol;
+                var top = event.clientY+scrollTop - ot;
+                
+                //设置 box1的位置
+                obj.style.left = left +"px";
+                obj.style.top = top+ "px";
+                };
+
+                // 鼠标松开:  为document绑定onmouseup
+                document.onmouseup = function(){
+                    // 直接取消doument的onmousemove事件
+                    document.onmousemove = null;
+                     // 直接取消doument的onmouseup事件
+                    //  防止鼠标在其大地放松改的时候也触发该函数
+                    document.onmouseup = null;
+                    // alert("鼠标松开了");
+
+                    //鼠标松开时，取消对事件捕获 
+                    box1.releaseCapture&&box1.releaseCapture();
+
+                };
+
+             return false;
+            };
+
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+</html>

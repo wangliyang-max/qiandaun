@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            width: 600px;
+            height: 800px;
+            border:10px rgb(214, 144, 144) solid; 
+            display: flex;
+            flex-flow: wrap;
+            align-items:stretch;
+            justify-content: center;
+        }
+        li{
+            width: 200px;
+            font-size: 50px;
+            text-align: center;
+            line-height: 100px;
+            flex-shrink: 0;
+        }
+        li:nth-child(1){
+             background-color: cadetblue;
+             align-self: center;
+        }
+        li:nth-child(2){
+            background-color: coral;
+        }
+        li:nth-child(3){
+            background-color: darkgreen;
+        }
+        li:nth-child(4){
+            background-color:darkseagreen;
+        }
+        li:nth-child(5){
+            background-color:lightblue;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2
+            <div>2</div>
+        </li>
+        <li>3
+            <div>3</div>
+            <div>3</div>
+        </li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    
+</body>
+</html>

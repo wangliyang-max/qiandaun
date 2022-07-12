@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="./1.css">
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById("box1");
+            var btn1 = document.getElementById("btn1");
+            btn1.onclick = function(){
+                box1.style.width = "300px";
+                box1.style.backgroundColor = "yellow";
+            }
+             var btn2 = document.getElementById("btn2");
+            btn2.onclick = function(){
+                // 带符号
+                alert(box1.style.width);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id ="box1">
+    </div>
+    <br>
+    <button id="btn1">点击按钮修改</button>
+    <button id = "btn2">点击按钮读取样式</button>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #box1{
+            height: 100px;
+            width: 100px;
+            background-color:red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+
+            var box1 = document.getElementById("box1");
+             alert(box1.style.left);
+            var speed = 10;
+            var div = 0;//方向
+            setInterval(function(){
+                switch(dir){
+                case 37:
+                    // alert("向左");
+                    // alert(box1.style.width)
+                    alert(box1.style.left);
+                    box1.style.left = box1.offsetLeft - speed + "px";
+                    break;
+                case 39:
+                    // alert("向右");
+                    box1.style.left = box1.offsetLeft + speed + "px";
+                    break;
+                case 38:
+                    // alert("向上");
+                     box1.style.top = box1.offsetTop - speed + "px";
+                    break;
+                case 40:
+                    // alert("向下");
+                    box1.style.top = box1.offsetTop + speed + "px";
+                    break;
+            }
+            },30);
+
+            document.onkeydown = function(event){  
+            event = event || window.event;
+            // 按住ctrl键加速
+            if(event.ctrlKey){
+                speed = 50;
+            }else{
+                speed =10;
+            }
+            dir = event.keyCode;
+            };
+
+             document.onkeyup = function(){
+                 dir = 0;
+ 
+            };
+        };
+
+    </script>
+</head>
+<body>
+    <div id="box1">
+    </div>
+</body>
+</html>

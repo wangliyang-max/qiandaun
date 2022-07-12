@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* 子元素选择器 */
+        p+span{
+            color: tomato;
+        }
+        p~span{
+            background-color: turquoise;
+        }
+    </style>
+</head>
+<body>
+    <div class="p">
+        我是一个div
+        <p class="p">我是div中的p
+            <span>我是p中的span</span>
+        </p>
+        <span>我是第一个div中的span</span><br>
+        <span>我是第一个div中的span</span><br>
+        <span>我是第一个div中的span</span><br>
+        <span>我是第一个div中的span</span><br>
+        <span>我是第一个div中的span</span><br>
+    </div>
+<div>
+    <span>
+        我是第二个div中的span
+    </span>
+</div>
+    
+</body>
+</html>

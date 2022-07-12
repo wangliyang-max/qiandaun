@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        html{
+            --color:rgb(76, 145, 76);
+            --length:100px;
+        }
+        .box1{
+            width: calc(100px*2);
+            height: var(--length);
+            background-color: var(--color);
+        }
+        .box2{
+            width: var(--length)x;
+            height:var(--length);
+            color: var(--color);
+        }
+        .box3{
+            width: var(--length);
+            height: var(--length);
+            border: var(--color) solid 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">helloworld</div>
+    <div class="box2">helloworld</div>
+    <div class="box3">helloworld</div>
+    
+</body>
+</html>

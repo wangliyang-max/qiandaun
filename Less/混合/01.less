@@ -1,0 +1,19 @@
+.center(@h:100px,@w:100px,@color:pink){
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: @color;
+    height: @h;
+    width: @w;
+}
+#wrap {
+    .inner {
+        .center(@color:yellow);
+    }
+    .inner2{
+        .center(200px, 200px, deeppink);
+    }
+}

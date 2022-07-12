@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box1{
+            width: 800px;
+            height: 800px;
+            background-color: silver;
+            overflow: hidden;
+        }
+        .box1 div{
+            width: 100px;
+            height: 100px;
+            /* margin-top: 100px; */
+        }
+        .box2{
+           background-color: tan;
+            /* animation-name后面接的是关键帧的名字 */
+           animation-name: test;
+           /* animation-duration代表动画执行的时间 */
+           animation-duration: 2s; 
+           /* animation-delay代表动画的延时 */
+           animation-delay: 2s;
+           /* 运动方式 */
+           animation-timing-function: ease-in-out;
+           /* 动画执行的次数 
+           可选值：
+           次数
+           infinite（无限执行）
+           */
+           animation-iteration-count:20;
+
+
+           animation-direction: alternate;
+            /* 动画的执行状态: */
+           animation-play-state: running;
+           animation-fill-mode:both;
+           animation: test 2s 2 1s alternate running;
+
+        }
+        
+       @keyframes test {
+        /*from表示动画的开始位置4可以使用0%*/
+        from{
+        margin-left: 0;
+        }
+        /*to动画的结束位置也可以使用100%*/
+        to{
+        margin-left: 700px;
+        }
+    }
+    </style>
+    
+</head>
+<body>
+
+   <div class="box1">
+       <div class="box2">
+       </div>
+
+   </div> 
+</body>
+</html>

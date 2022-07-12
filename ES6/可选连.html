@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        function main (config){
+            // 必须确保传值了
+            // 不使用可选连传值 
+           const dbHost = config&&config.db&&config.db.host
+           console.log(dbHost)  
+        //    使用可选链操作符?.
+            const dbHost2 = config?.db?.host
+            console.log(dbHost2)  
+            }
+        main({
+            db:{
+                host:'192.168.1.100',
+                username:'root'
+            },
+            cache:{
+                host:'192.168.1.200',
+                username:'admin'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          class Phone{
+            constructor(price,size){
+                this.price = price
+                this.size =size
+            }
+            setPrice(price){
+                this.price = price
+            }
+            getPrice(){
+                return this.price
+            }
+        }
+
+        let s = new Phone(1200,'5.5inch')
+        console.log(s.getPrice())
+        s.setPrice(2000)
+        console.log(s.getPrice())
+    </script>
+</body>
+</html>

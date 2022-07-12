@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        class Phone{
+            constructor(brand,price){
+                this.brand = brand
+                this.price = price
+            }
+            // 父类的成员方法
+            tele(){
+                console.log("我可以打电话")    
+            }
+        }
+
+        class SmartPhone extends Phone {
+            constructor(brand,price,color,size){
+                // 调用父类构造方法
+                super(brand,price)
+                this.color = color
+                this.size = size
+            }
+
+            tele(){
+                console.log("我可以视频通话")
+            }
+
+        }
+
+        const xiaomi = new SmartPhone('小米',799,'黑色','4.7inch')
+        xiaomi.tele()
+        
+
+
+    </script>
+</body>
+</html>

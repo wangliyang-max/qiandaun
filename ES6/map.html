@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let m = new Map()
+        let m2 = new Map([['name','yang'],['age',18],['sex','M']])
+        console.log(m2)
+
+        
+        m.set('name','孙悟空')
+        m.set('wuqi',function (){
+           console.log('我的武器是金箍棒')
+        })
+        let key ={
+            school:'nefu'
+        }
+        m.set(key,['北京','上海','深圳'])
+        console.log(m)
+        for(let v of m){
+            console.log(v)
+        }
+        
+
+        console.log(m.size)
+        m.delete('name')
+        console.log(m.get('wuqi'))
+        console.log(m.get(key))
+        console.log(m.has('wuqi'))
+        m.clear()
+
+
+    </script>
+</body>
+</html>

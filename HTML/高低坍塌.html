@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .outer{
+            border:10px rgb(92, 25, 25) solid;
+        }
+        .inner{
+            width: 100px;
+            height: 100px;
+            background-color: teal;
+            float: left;
+        }
+      .clearfix::before,
+      .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+       
+        .box3{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(245, 245, 3);
+
+        }
+    </style>
+</head>
+<body>
+    <div class="outer clearfix">
+        <div class="inner"></div>
+    </div>
+    <div class="box3"></div>
+    
+</body>
+</html>

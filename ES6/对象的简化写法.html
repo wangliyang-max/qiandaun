@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let name = '孙悟空'
+        let age = 18
+        let wuqi = function (){
+           console.log('我的武器是金箍棒')
+        }
+
+        const sun = {
+            name,//等价于 name:name
+            age,
+            wuqi
+        }
+
+        console.log(sun.name)
+        console.log(sun.age)
+        sun.wuqi()
+
+        const zhu = {
+            name:'猪八戒',
+            age:25,
+            wuqi(){
+                console.log('我的武器是上宝沁金耙')   
+            }, 
+            /*
+            等价于
+            wuqi2 = function (){
+               console.log('我的武器是上宝沁金耙')  
+            } 
+            */
+        }
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+   <script>
+       const config1={
+           host:'localost',
+           port:3306,
+           name:'root',
+           pass:'root',
+           text1:'123456'
+       }
+       const config2={
+           host:'http://naidu.com',
+           port:3300,
+           name:'baidu',
+           pass:'baidu',
+           text2:'123456'
+       }
+       console.log(Object.assign(config1,config2))
+
+       const school={
+           name:'新东方'
+       }
+       const cities = {
+           xiaoqu:['北京','上海','深圳']
+       }
+       Object.setPrototypeOf(school,cities)
+       console.log(Object.getPrototypeOf(school))
+       
+       
+   </script> 
+    
+</body>
+</html>

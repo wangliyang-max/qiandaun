@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      .out{
+        width: 300px;
+        height: 300px;
+        background-color: coral;
+      }
+      .inner{
+        margin-top: 100px;
+        width: 100px;
+        height: 100px;
+        background-color: darkcyan;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="out">
+      外部div
+      <div class="inner">内部div</div>
+    </div>
+
+    <div class="divBtn">
+      <button id = 'btn1'>取消绑定所有事件</button>
+      <button id = 'btn2'>取消绑定mouseover事件</button>
+      <button id = 'btn3'>测试事件坐标</button>
+      <a href="http://www.baidu.com" id="text4">百度一下</a>
+    </div>
+
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    
+    <script>
+    /* 1.给.out绑定点击监听(用两种方法绑定)
+     $('.out').click(function (){
+        console.log('click out')
+     })*/
+    $('.out').on('click',function (){
+       console.log('click out')
+    })
+// on更通用，极个别没有click()地方法
+
+    // 2．给.inner绑定鼠标移入和移出的事件监听(用3种方法绑定)
+   /* $('.inner')
+    .mouseenter(function (){
+      console.log('进入')
+    })
+    .mouseleave(function (){
+      console.log('离开')
+    })*/
+    /*$('.inner')
+    .on('mouseenter',function (){
+       console.log('进入')
+    })
+    .on('mouseleave',function (){
+      console.log('离开')  
+    })*/
+    $('.inner').hover(function (){
+       console.log('进入')
+    },function (){
+       console.log('离开')
+    })
+    // hover 底层调用的还是mouseenter
+
+    // 3．点击btn1解除.inner上的所有事件监听
+    $('#btn1').click(function (){
+       $('.inner').off()
+    })
+    // 4．点击btn2解除.inner上的mouseover事件
+    $('#btn2').click(function (){
+       $('.inner').off('mouseenter')
+    })
+    // 5．点击btn3得到事件坐标
+    $('#btn3').click(function (event){//event
+       console.log(event.offsetX,event.offsetY)//原点：事件元素
+       console.log(event.clientX,event.clientY)//窗口左上角
+       console.log(event.pageX,event.pageY)//页面左上角
+    })
+    // 6．点击.inner区域，外部点击监听不响应
+    $('.inner').click(function (event){
+       console.log('inner')
+       event.stopPropagation()
+       
+    })
+    // 7.点击链接,如果当前时间是偶数不跳转
+    $('#test4').click(function (event){
+       if(Date.now()%2 === 0){
+          event.preventDefault()
+       }
+    })
+    </script>
+    
+  </body>
+</html>

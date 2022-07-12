@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>淡入淡出</title>
+    <style>
+        .div1{
+            width: 200px;
+            height: 200px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <button id='btn1'>立即显示</button>
+    <button id='btn2'>慢慢显示</button>
+    <button id='btn3'>慢慢隐藏</button>
+    <button id='btn4'>隐藏显示切换</button>
+    <br>
+    <div class="div1">
+
+    </div>
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script>
+        var $div1 = $('.div1')
+        $('#btn1').click(function  (){
+            $div1.show()
+        })
+        $('#btn2').click(function  (){
+           $div1.show(3000)
+        })
+        $('#btn3').click(function  (){
+           $div1.hide(3000)
+        })
+        $('#btn4').click(function  (){
+           $div1.toggle()
+        })
+    </script>
+    
+</body>
+</html>

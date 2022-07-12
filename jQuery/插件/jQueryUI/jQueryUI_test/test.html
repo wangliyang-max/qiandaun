@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryUI</title>
+    <link rel="stylesheet" href="./jquery-ui.css">
+</head>
+<body>
+      <!-- 手风琴 accordion -->
+    <h2>手风琴</h2>
+    <div id="accordion">
+        <h3>选项一</h3>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, nihil error praesentium neque quos, asperiores eos libero quaerat enim officiis eaque cupiditate quis doloribus minus porro modi ut sint similique.</div>
+        <h3>选项二</h3>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, nihil error praesentium neque quos, asperiores eos libero quaerat enim officiis eaque cupiditate quis doloribus minus porro modi ut sint similique.</div>
+        <h3>选项三</h3>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, nihil error praesentium neque quos, asperiores eos libero quaerat enim officiis eaque cupiditate quis doloribus minus porro modi ut sint similique.</div>
+    </div>
+
+    <!-- 自动匹配：autocomplete -->
+    <h2>自动匹配</h2>
+    <div>
+        <input id="autocomplete" title="type &quoty;a&quoty;">
+    </div>
+
+    <!-- 选项卡：tabs -->
+    <h2>选项卡</h2>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">First</a></li>
+            <li><a href="#tabs-2">Second</a></li>
+            <li><a href="#tabs-3">Third</a></li>
+        </ul>
+        <div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        <div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+        <div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+    </div>
+
+    <script type='text/javascript' src='./jquery.js'></script>
+    <script type='text/javascript' src='./jquery-ui.js'></script>
+    
+    <script>
+        // 手风琴
+        $('#accordion').accordion()
+
+        // 自动匹配
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $( "#autocomplete" ).autocomplete({
+            // 指定数据源
+            source: availableTags
+
+        });
+
+        // tab页面
+        $('#tabs').tabs()
+
+                
+
+    </script>
+    
+</body>
+</html>

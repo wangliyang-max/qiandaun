@@ -1,0 +1,51 @@
+{
+  "id": "3323213",
+  "name": "myicon",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "28793206",
+      "name": "图标_购物袋",
+      "font_class": "tubiao_gouwudai",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "28793207",
+      "name": "图标_导视牌",
+      "font_class": "tubiao_daoshipai",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "28793213",
+      "name": "图标_时间",
+      "font_class": "tubiao_shijian",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "28793217",
+      "name": "图标_金融-储蓄罐",
+      "font_class": "tubiao_jinrong-chuxuguan",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "28793220",
+      "name": "图标_已开门",
+      "font_class": "tubiao_yikaimen",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "28793221",
+      "name": "图标_环球旅行",
+      "font_class": "tubiao_huanqiulvhang",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    }
+  ]
+}

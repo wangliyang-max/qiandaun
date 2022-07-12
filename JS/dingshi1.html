@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: salmon;
+        position: absolute;
+        left:0;/* 为使用IE做准备 */
+      }
+       #box2 {
+        width: 100px;
+        height: 100px;
+        background-color:rgb(236, 236, 166);
+        position: absolute;
+        left:0;/* 为使用IE做准备 */
+        top:200px;
+      }
+    </style>
+    <script src="js/tool.js"></script>
+    <script>
+ 
+
+      window.onload = function () {
+        var box1 = document.getElementById("box1");
+        var box2 = document.getElementById("box2");
+        var btn = document.getElementById("btn");
+        var btn2 =document.getElementById("btn2");
+        var btn3 =document.getElementById("btn3");
+        var btn4 =document.getElementById("btn4");
+        var btn5 =document.getElementById("btn5");
+        var btn6 =document.getElementById("btn6");
+
+
+
+        btn.onclick =function(){
+          move(box1, "left", 800 ,20);
+        };   
+        btn2.onclick = function(){
+          move(box1,"left", 0 ,10);
+        };
+         btn3.onclick = function(){
+          move(box2,"left", 800 ,10);
+        };
+         btn4.onclick = function(){
+          move(box2,"left", 0 ,10);
+        };
+         btn5.onclick = function(){
+          move(box2,"width", 800 ,10);
+        };
+         btn6.onclick = function(){
+          move(box2,"height", 200 ,10,function(){
+              move(box2,"width", 800 ,10,function(){
+                    move(box2,"top", 0 ,10,function(){
+
+                    });
+              });
+          });
+        };
+
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn">点击按钮，box1向右移动</button>
+    <button id="btn2">点击按钮，box1向左移动</button>
+    <button id="btn3">点击按钮，box2向右移动</button>
+    <button id="btn4">点击按钮，box2向左移动</button>
+    <button id="btn5">点击按钮，box2变宽</button>
+    <button id="btn6">点击按钮，box2改变</button>
+    <div id="box1"></div>
+    <div id="box2"></div>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    </style>
+    <script>
+        window.onload = function(){
+        function myClick(idName,fun){
+            var btn = document.getElementById(idName);
+            btn.onclick = fun;
+        };
+
+        myClick("but",function(){
+            var bj = document.getElementById("bj");
+            var pn = bj.parentNode;
+            // alert(pn.innerHTML);
+            alert(pn.innerText);
+            /*
+            innerText
+            -该属性可以获取到元素内部的文本内容
+            -它和innerHTML类似,不同的是它会自动将html去除*/
+             
+        });
+
+        myClick("but2",function(){
+            var bj = document.getElementById("sh");
+            var pn = bj.previousSibling;
+            // alert(pn.innerHTML);
+            alert(pn.innerText);
+        });
+
+        myClick("but3",function(){
+            var bj = document.getElementById("sh");
+            var pn = bj.previousElementSibling;
+            // alert(pn.innerHTML);
+            alert(pn.innerText);
+        });
+    }
+
+
+    </script>
+</head>
+<body>
+<div>
+    <ul id ="city">
+        <li id = "bj">北京</li>
+        <li id = "sh">上海</li>
+        <li id = "dj">东京</li>
+        <li id = "se">首尔</li>
+
+    </ul>
+    <button id="but">获取北京的父节点</button>
+    <br><br>
+    <button id="but2">获取上海的前一个兄弟节点</button>
+    <br><br>
+     <button id="but3">获取上海的前一个兄弟元素</button>
+    <br><br>
+</div>
+    
+</body>
+</html>

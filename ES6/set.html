@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+       let arr = [1,2,3,4,5,4,3,2,1]
+        // 1.数组去重
+        //let result = new Set(arr),再使用括号中那运算符转换成数组
+        let result1 =[...new Set(arr)]
+        console.log(result1)
+        // 2.交集
+        let arr2 =[4,5,6,5,6]
+        // let result2 = [...new Set(arr)].filter(item=>{
+        //     let s2 = new Set(arr2)
+        //     if(s2.has(item)){
+        //         return true
+        //         // filter如果返回为true就留下item,为false就放弃
+        //     }else{
+        //         return false
+        //     }
+        // })
+
+        // 上述语可以简写为
+        let result2 =[...new Set(arr)].filter(item=>new Set(arr2).has(item))
+        console.log(result2)
+
+        // 3.并集
+        let union = [...new Set([...arr,...arr2])]
+        console.log(union)
+    
+        // 4.差集(交集的逆运算)
+        // 在arr中，但不在arr2中
+        let diff = [...new Set(arr)].filter(item=>!(new Set(arr2).has(item)))
+        console.log(diff)
+
+
+        
+        
+    </script>
+</body>
+</html>

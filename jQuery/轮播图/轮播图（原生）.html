@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #outer {
+        width: 520px;
+        height: 333px;
+        margin: 50px auto;
+        background-color: rosybrown;
+        padding: 10px 0px;
+        position: relative;
+        /* 裁剪溢出的内容 */
+        overflow: hidden;
+      }
+      img {
+        width: 500px;
+        height: 333px;
+        object-fit: cover;
+      }
+      #imgList {
+        list-style: none;
+        width: 3120px;
+        position: absolute;
+        /* 偏移量 */
+        left: 0px;
+      }
+      #imgList li {
+        float: left;
+        margin: 0 10px;
+      }
+      #navDiv {
+        /* 开启绝对定位 */
+        position: absolute;
+        bottom: 15px;
+        /* 设置left:
+        outer : 520px
+        navDiv = 25*5 = 125 
+        (520-125)/2 = 197.5
+        */
+        /* 但是不应该写死，使用JS进行计算 */
+        left: 197px;
+      }
+      #navDiv a {
+        /* //浮动:内联元素变成块元素 */
+        float: left;
+        width: 15px;
+        height: 15px;
+        background-color: rgb(131, 25, 57);
+        margin: 0 5px;
+        opacity: 0.5;
+        /* IE8透明 */
+        filter: alpha(opacity = 50);
+      }
+      #navDiv a:hover {
+        background-color: white;
+      }
+    </style>
+    <!-- <script src="js/tool.js"></script> -->
+    <script>
+      window.onload = function () {
+        // 动态设置图片容器长度
+        var imgList = document.getElementById("imgList");
+        var imgArry = document.getElementsByTagName("img");
+        imgList.style.width = imgArry.length * 520 + "px";
+
+        // 设置导航栏居中
+        var navDiv = document.getElementById("navDiv");
+        var outer = document.getElementById("outer");
+        navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+
+        // 设置初始导航栏选中的颜色
+        var index = 0;
+        var Aarray = document.getElementsByTagName("a");
+        Aarray[index].style.backgroundColor = "white";
+
+
+        // 点击超链接切换到指定图片
+        for (var i = 0; i < Aarray.length; i++) {
+          // 记录索引
+          Aarray[i].num = i;
+          Aarray[i].onclick = function () {
+            // 用户点击的时候需要关闭自动切换的效果
+            // 就是关闭定时器
+            clearInterval(timer);
+
+            // 点击切换到指定的图片
+            index = this.num;
+
+            // 显示图片
+            // imgList.style.left = -520 * index + "px";
+            // 可以使用move切换图片
+            move(imgList, "left", -520*index, 20, function(){
+              // 点击的动画执行完毕，开启定时器：
+              autoChange();
+            });
+        
+            // 修改a
+            setA();
+
+          };
+        }
+
+        // 自动切换
+        autoChange();
+
+
+        // <!-----函数------>
+
+        // 设置a的颜色显示
+        function setA() {
+          for (var i = 0; i < Aarray.length; i++) {
+            // 解决最后一张和第一张的衔接问题
+            if(index >= imgArry.length -1){
+              // 最后一张的index设置为0
+              index = 0;
+              // 将最后一张直接切换为第一张
+              imgList.style.left = 0;
+            }            
+
+
+            /*
+              Aarray[i].style.backgroundColor = "rgb(131, 25, 57)";
+              问题：这样写会是内联样式会覆盖 a:hover 的样式显示。
+              所以可以设置为空串，直接显示样式表中的阿姨浓缩果汁
+            */
+            Aarray[i].style.backgroundColor = "";
+          }
+          // 将选中的a设置为white
+          Aarray[index].style.backgroundColor = "white";
+        }
+
+               // 根据元素的样式名获取样式值
+      function getStyle(obj, name) {
+        if (window.getComputedStyle) {
+          // 正常浏览器
+          return getComputedStyle(obj, null)[name];
+          //    IE8
+        } else {
+          return obj.currentStrly[name];
+        }
+      }
+// 对象
+// speed移动速度
+// target目的地
+// attr:要执行动画的样式:left,top,width
+// callback:回调函数中再嵌套回调函数,可以添加样式效果
+      function move(obj,attr,target,speed,callback){
+
+            clearInterval(obj.timer);
+            var current = parseInt(getStyle(obj,attr));
+            if(target < current){
+                speed = -speed;
+            }
+        // 开启定时器执行动态效果
+            obj.timer = setInterval(function () {
+            var oldValue = parseInt(getStyle(obj,attr));
+            newValue = oldValue + speed;
+            
+            if(speed<0&&newValue<target || speed>0&&newValue>target){
+                newValue = target;
+            }
+            // attr是变量需要使用[]获取
+            obj.style[attr] = newValue + "px";
+
+            if(newValue == target){
+              clearInterval(obj.timer);
+              callback && callback();
+            }
+
+        }, 30);
+
+      }
+
+
+      var timer;
+      // 自动切换
+      function autoChange(){
+        // 开启定时函数实现自动切换
+        timer = setInterval(function(){
+          // 索引自增
+          index++;
+          index %= imgArry.length;
+          // 图片切换
+          move(imgList,"left", -520*index,20,function(){
+              setA();
+          });
+
+        },3000);
+      }
+
+      };
+    </script>
+  </head>
+  <body>
+    <div id="outer">
+      <ul id="imgList">
+        <li><img src="img/1.jpg" /></li>
+        <li><img src="img/2.jpg" /></li>
+        <li><img src="img/3.jpg" /></li>
+        <li><img src="img/4.jpg" /></li>
+        <li><img src="img/5.jpg" /></li>
+        <!-- 最后一张和第一张一样，实现轮播效果 -->
+        <li><img src="img/1.jpg" /></li>
+      </ul>
+
+      <!-- 导航按钮 -->
+      <div id="navDiv">
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+        <a href="javascript:;"></a>
+      </div>
+    </div>
+  </body>
+</html>

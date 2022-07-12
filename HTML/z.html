@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            perspective: 800px;
+        }
+        body{
+           width: 500px;
+           height: 500px; 
+           border: darkslateblue 2px solid;
+        }
+        .box1{
+            width: 100px;
+            height: 100px;
+            background-color:darkseagreen;
+            margin: 200px auto;
+            transition: 1s;
+        }
+        body:hover .box1{
+            transform:translateZ(200px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

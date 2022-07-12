@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        // 父类型
+        function Supper (){
+           this.supProp = 'Supper property'
+        }
+        Supper.prototype.showSupperPop = function (){
+           console.log(this.supProp)
+        }
+        // 子类型
+        function Sub (){
+           this.subProp = 'Sub property'
+        }
+
+        // 子类型的原型成为夫类型的实例对象
+        Sub.prototype = new Supper()
+      //   让子类型原型对象的constructor属性指向Sub
+        Sub.prototype.constructor = Sub
+        Sub.prototype.showSubPop = function (){
+           console.log(this.subProp)
+        }
+
+        var sub = new Sub()
+
+      //    constructor属性返回对象的构造函数
+        console.log(sub.constructor)
+    </script>
+    
+</body>
+</html>

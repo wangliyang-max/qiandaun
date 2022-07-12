@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边距</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: khaki;
+            padding: 20px;
+            border: lightblue 10px solid;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script type='text/javascript' src='./jquery库/jquery-1.12.4.js'></script>
+    <script>
+        var $div = $('div')
+    // 内容尺寸
+    console.log($div.width(),$div.height())//100 100
+    // 内部尺寸
+    console.log($div.innerWidth(),$div.innerHeight())//140 140
+    // 外部尺寸
+    console.log($div.outerWidth(),$div.outerHeight())//160 160
+    console.log($div.outerWidth(true),$div.outerHeight(true))//200 200
+    </script>
+    
+</body>
+</html>

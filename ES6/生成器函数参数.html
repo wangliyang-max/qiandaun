@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function * gen(arg){
+            console.log(arg)
+            let first = yield 111
+            console.log(first)
+            let second = yield 222
+            console.log(second)
+            let third = yield 333
+            console.log(third)
+        }
+
+        let iterator = gen('AAA')
+        console.log(iterator.next())
+        // next()方法可以传入实参，该实参将作为上一个yield的返回结果
+        console.log(iterator.next('BBB'))
+        console.log(iterator.next('CCC'))
+        console.log(iterator.next('DDD'))
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        // 实例化Promise对象
+        const p = new Promise(function (resolve,reject){
+            setTimeout(function (){   
+            let data = '数据库中的数据'
+            resolve(data)//对象状态变成成功
+          /*  let err = '数据读取失败'
+            reject(err)//对象状态变成失败*/
+            },1000)   
+        });
+        // 调用promise对象的then方法
+        p.then(function (value){
+        // 状态是成功的时候调用该函数，即如果调用resolve就调用该函数 
+        console.log(value)   
+        },function (reason){
+            // 状态失败调用该函数,即如果调用reject就调用该函数
+           console.error(reason) 
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+/*
+float-grid-columns执行结果：
+.col-xs-1,.col-xs-2,.col-xs-3,.col-xs-4,...col-xs-12 {
+  float: left;
+}
+*/
+/*.loop-grid-columns执行结果：
+.col-xs-12{
+  width:12/12;
+}
+.col-xs-11 {
+  width: 11/12;
+}
+……
+.col-xs-1 {
+  width: 1/12;
+}
+*/
+/*# sourceMappingURL=./grid-framework.css.map */
