@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>初始vue</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <!-- 创建一个容器，容器用来接收vue传来的内容 -->
+    <div id="root">
+      <!-- 插值语法，{{变量名}} -->
+      <h1>HelloWorld,{{name.toUpperCase()}},{{address}}</h1>
+    </div>
+    <script>
+      Vue.config.productionTip = false;
+
+      // 创建Vue实例
+      // vue是一个构造函数，vue有一个参数，是配置对象
+    new Vue({
+        //el用于指定当前Vue实例为哪个容器服务，值通常为css值选择字符串
+        el: "#root",
+        // data存储动态数据，数据供el所指定的容器去使用，值我们暂时先写成一个对象。
+        data: {
+          name: "yang",
+          address:"北京",
+
+        },
+      });
+    </script>
+  </body>
+</html>

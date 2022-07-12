@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person ={
+            name:'张三',
+            sex:'男',
+        }
+        // 为对象添加属性,三个参数：对象名，属性名，配置参数
+        Object.defineProperty(person,'age',{
+            value:18,
+            enumerator:true,//控制属性是否可以枚举，默认是false
+        })
+    </script>
+    
+</body>
+</html>

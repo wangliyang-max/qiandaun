@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <h1>学校名称：{{name}}</h1>
+       <h1>学校地址：{{address}}</h1>
+       <h1>监听：{{$listeners}}</h1>
+       <h1>_hasHookEvent：{{_hasHookEvent}}</h1>
+    </div>
+  </body>
+  <script>
+    Vue.config.productionTip = false;
+    const vm = new Vue({
+        el:'#root',
+        data:{
+            name:'百度',
+            address:'北京'
+        }
+    })
+    console.log(vm);
+  </script>
+</html>
