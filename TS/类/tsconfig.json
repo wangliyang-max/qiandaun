@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "module": "ES2015",
+        "target": "ES6",
+        "strict": true,
+        "outDir":"./dist",
+        // 有错误时不被编译
+        "noEmitOnError": true,
+    },
+    "include":[
+        "./src/**/*"
+    ]
+}

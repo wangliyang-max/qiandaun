@@ -1,0 +1,25 @@
+{
+    "include": [
+        "./src/**/*",
+    ],
+    // "exclude": [
+    //     "./src/hello/**/*"
+    // ],
+
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "system",
+        "outDir": "./dist",
+        // "outFile": "./dist/app.js",
+        "allowJs": false,
+        "checkJs": false,
+        "removeComments": false,
+        "noEmit": false,
+        "noEmitOnError": false,
+        "alwaysStrict": true,
+        "noImplicitAny": false,
+        "noImplicitThis": false,
+        "strictNullChecks": false,
+        "strict": false
+    } 
+}
