@@ -9,7 +9,7 @@
 </template>
 
 <script>
-// import axios from "axios";
+import axios from "axios";
 export default {
     name: "SearchVue",
     data() {
@@ -21,7 +21,7 @@ export default {
         searchUsers() {
             this.$bus.$emit("getUsers",{isFirst:false,isLoading:true,errMsg:'',users:[]})
             // 这个请求时guthub开发给大家的里面了已经使用cors设置了响应头,所以不会有跨域问题
-            this.$http.get(`https://api.github.com/search/users?q=${this.keyword}`)
+            axios.get(`https://api.github.com/search/users?q=${this.keyword}`)
                 .then(response => {
                     // console.log("请求成功了", response.data.items)
                     this.$bus.$emit("getUsers", { isLoading: false, errMsg: '', users: response.data.items })

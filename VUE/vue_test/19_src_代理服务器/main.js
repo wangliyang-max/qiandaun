@@ -6,12 +6,8 @@
 import Vue from 'vue'
 // 引入App
 import App from './App.vue'
-// 引入插件
-import vueResource from 'vue-resource'
 // 关闭vue生产提示
 Vue.config.productionTip = false
-
-Vue.use(vueResource)
 
 // 创建vue实例对象
 new Vue({
