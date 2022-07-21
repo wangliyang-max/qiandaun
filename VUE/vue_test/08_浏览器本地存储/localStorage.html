@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h2>localStorage</h2>
+    <button onclick="saveData()">点我保存一个数据</button>
+    <button onclick="readData()">点我读取一个数据</button>
+    <button onclick="deleteData()">点我删除一个数据</button>
+    <button onclick="deleteAllData()">点我清空所有数据</button>
+
+
+    <script type='text/javascript'>
+    function saveData (){
+        // localStorage中存储的键和值都是字符串类型，
+        // 即使传入的是number类型，也会转为字符串类型,默认调用toString方法
+        // 所以如果想要传递对象可以调用JSON.stringify方法，将对象转换为json字符串（json字符串可以显示对象内容，但本质也是一个字符串）
+
+        const p ={id:"123",name:'yang',age:18}
+        localStorage.setItem('msg','hello')
+        localStorage.setItem('hello',123)
+        localStorage.setItem('person',JSON.stringify(p))
+    }
+    function readData (){
+        console.log(localStorage.getItem('msg'))
+        console.log(localStorage.getItem('hello'))
+        // JSON.parse(null) 的结果依然是 null
+        console.log(JSON.parse(localStorage.getItem('person')))        
+    }
+    function deleteData (){
+        localStorage.removeItem('msg')
+
+    }
+    function deleteAllData (){
+        localStorage.clear()
+    }
+
+    </script>
+</body>
+</html>

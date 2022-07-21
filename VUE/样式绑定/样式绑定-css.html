@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <style>
+        .basic{
+            width: 500px;
+            height: 200px;
+            border: 2px black solid;
+        }
+
+        .happy{
+             background:-webkit-linear-gradient(top,white,rgb(255, 234, 188),rgb(235, 150, 135));
+        }
+        .normal{
+             background:-webkit-linear-gradient(top,white,lightblue,skyblue);
+        }
+        .sad{
+             background:-webkit-linear-gradient(top,white,rgb(128, 128, 128),rgb(57, 57, 57));
+        }
+
+        .style1{
+            background-color: rgb(179, 220, 255);
+        }
+        .style2{
+            font-size: 30px;
+            text-shadow:5px 5px 5px yellow;
+        }
+        .style3{
+            border-radius: 5px;
+            border: 2px solid yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="root">
+        <!-- 不变的样式和改变的class分开写 -->
+        <!-- <div class="basic" :class="mood"  @click="changeMood">{{name}}</div> -->
+        <!-- <br>
+        <br>
+        <div class="basic" :class="arr">{{name}}</div> -->
+        <br>
+        <br>
+        <div class="basic" :class="classObj">{{name}}</div>
+    </div>
+    <script type='text/javascript'>
+    Vue.config.productionTip = false;
+    const vm = new Vue({
+        el:'#root',
+        data: {
+            name:"yang",
+            mood:"normal",
+            arr:["style1","style2","style3"],
+            classObj:{
+                style1:false,
+                style2:false,
+                style3:false
+            }
+        },
+        methods: {
+            changeMood(){
+                const arr =['normal','happy','sad']
+                const index = Math.floor(Math.random()*3)
+                this.mood=arr[index]
+            }
+        },
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+_<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+       <h2>姓名：{{name}}</h2>
+       <h2>年龄：{{age}}</h2>
+       <!-- 如果一个对象的某属性未定义，返回undefined，vue对于undefined 类型的数据不显示，也不报错 -->
+       <h2>朋友：{{friends.id}}-{{friends.name}}-{{friends.age}}-{{friends.sex}}</h2>
+       <button @click="addSex">点击添加朋友性别</button>
+    </div>
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+        el: "#root",
+        data: {
+          name: "yang",
+          age:"18",
+          friends: { id: "001", name: "张三", age: 18 },
+        },
+        methods: {
+            addSex(){
+            //    Vue.set(this.friends,'sex','男')
+            this.$set(this.friends,'sex','男')
+            }
+        },
+      });
+    </script>
+  </body>
+</html>

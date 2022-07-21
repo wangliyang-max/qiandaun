@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <school></school>
+    </div>
+
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+      Vue.prototype.x = 10
+
+      const school = Vue.extend({
+        data() {
+          return {
+            schoolName: "nefu",
+            address: "哈尔滨",
+          };
+        },
+        template: `
+        <div>
+            <h2>学校名字:{{schoolName}}</h2>
+            <h2>地址:{{address}}</h2>
+            <h2>Vue.prototype上的x:{{x}}</h2>
+        </div>`,
+      });
+      const vm = new Vue({
+        el: "#root",
+        components: {
+          school: school,
+        },
+      });
+    </script>
+  </body>
+</html>

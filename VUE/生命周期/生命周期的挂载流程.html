@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+
+
+    <div id="root">
+      <h2>当前值是{{n}}</h2>
+      <button @click="addn">点我n+1</button>
+      <button @click="bye">点我销毁vm</button>
+    </div>
+
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+        el: "#root",
+        // template:`<div>
+        //     <h2>当前值是{{n}}</h2>
+        //     <button @click="addn">点我n+1</button>
+        //   </div>`,
+        data: {
+            n:1
+        },
+        methods: {
+            addn(){
+                this.n++;
+            },
+            bye(){
+              console.log("bye")
+              this.$destroy()
+            }
+        },
+        // 此时:无法通过vm访问到data中的数据、methods中的方法。
+        beforeCreate() {
+            console.log("beforeCreate")
+            console.log(this)
+        },
+        // 此时:可以通过vm访问到data中的数据、methods中配置的方法。
+        created(){
+            console.log("create")
+            console.log(this)
+            // debugger;//断点
+        },
+        // 1.页面呈现的是未经Vue编译的DOM结构。⒉所有对DOM的操作，最终都不奏效。
+        beforeMount() {
+            console.log("beforeMount")
+            console.log(this)
+        },
+
+        // Vue完成模板的解析并把初始的真实DOM元素放入页面后（即挂载完毕后）调用mounted
+        mounted(){
+           console.log("mounted")
+            console.log(this)
+            // debugger;//断点
+        },
+
+        // 此时:数据是新的，但页面是旧的，即:页面尚未和数据保持同步。
+        beforeUpdate() {
+          console.log("beforeUpdate")
+            console.log(this)
+            // debugger;//断点
+        },
+        // 此时:数据是新的，页面也是新的，即:页面和数据保持同步。
+        updated() {
+          console.log("updated")
+            console.log(this)
+            // debugger;//断点
+        },
+        beforeDestroy() {
+          console.log("beforeDestroy")
+            console.log(this)
+        },
+        destroyed() {
+          console.log("destroyed")
+        },
+
+      });
+
+
+    </script>
+  </body>
+</html>

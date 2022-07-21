@@ -7,16 +7,37 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
+     <!-- <script>
+        let number = 18
         let person ={
             name:'张三',
             sex:'男',
         }
         // 为对象添加属性,三个参数：对象名，属性名，配置参数
         Object.defineProperty(person,'age',{
-            value:18,
-            enumerator:true,//控制属性是否可以枚举，默认是false
+            // 当有人读取person的age属性时，get函数(getter)就会被调用，且返回值就是age的值
+            get(){
+                return number
+            },
+            // 当有人设置person的age属性时，set函数(setter)就会被调用，对age进行设置
+            set(value){
+                number = value
+            }
+
         })
+        console.log(person)
+    </script> -->
+    <script type='text/javascript'>
+    let obj1 ={x:100}
+    let obj2={y:200}
+    Object.defineProperty(obj2,'x',{
+        get(){
+            return obj1.x
+        },
+        set(value){
+            obj1.x = value
+        }
+    })
     </script>
     
 </body>

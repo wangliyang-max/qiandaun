@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <h1>学生信息</h1>
+      <button @click="student.age++">点击按钮年龄+1</button>
+      <button @click="addSex">添加性别，默认值是男</button>
+      <button @click="updateSex">修改性别</button>
+      <button @click="addFriend">在列表首部添加朋友</button>
+      <br>
+      <button @click="updateFirstFriendName">修改列表中第一个朋友的名字为yang</button>
+      <button @click="addHobby">添加一个爱好</button>
+      <button @click="updateHobby">修改第一个爱好为"开车"</button>
+      <button @click="removeCar">过滤掉爱好"开车"</button>
+      <h2>姓名：{{student.name}}</h2>
+      <h2>年龄：{{student.age}}</h2>
+      <h2 v-if="student.sex">性别：{{student.sex}}</h2>
+      <!-- 如果一个对象的某属性未定义，返回undefined，vue对于undefined 类型的数据不显示，也不报错 -->
+      <h2>爱好：</h2>
+      <ul>
+        <li v-for="(hobby,index) in student.hobbies" :key="index">{{hobby}}</li>
+      </ul>
+      <h2>朋友：</h2>
+      <ul>
+        <li v-for="friend in student.friends" :key="friend.id">
+          {{friend.id}}-{{friend.name}}-{{friend.age}}
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+        el: "#root",
+        data: {
+          student: {
+            name: "yang",
+            age: "18",
+            hobbies: ["吃饭", "睡觉", "打豆豆"],
+            friends: [
+              { id: "001", name: "张三", age: 18 },
+              { id: "002", name: "李四", age: 19 },
+              { id: "003", name: "王五", age: 20 },
+              { id: "004", name: "赵六", age: 21 },
+            ],
+          },
+        },
+        methods: {
+          addSex() {
+            Vue.set(this.student, "sex", "男");
+          },
+          updateSex() {
+            if(!this.student.sex) return;
+            if (this.student.sex === "男") {
+              this.student.sex = "女";
+            }else{
+              this.student.sex = "男";
+            }
+          },
+          addFriend(){
+            // 修改数组，但是使用unshift修改数据页面可以更新
+            this.student.friends.unshift({ id: "005", name: "老七", age: 21 })
+            // 并且给新加入的对象的属性设置getter和setter方法
+          },
+          updateFirstFriendName(){
+            // 由于vue为新加入的对象的属性设置getter和setter方法.所以这里可以直接为属性赋值
+            // (没有getter和setter方法的是数组中的元素,但是数组中的元素的属性是有getter和setter方法的)
+            this.student.friends[0].name = "yang"
+
+          },
+          addHobby(){
+            this.student.hobbies.push("学习")
+          },
+          updateHobby(){
+            Vue.set(this.student.hobbies, 0, "开车");
+            // this.student.hobbies.splice(0,1,"开车")
+          },
+          removeCar(){
+            this.student.hobbies = this.student.hobbies.filter((h)=>{
+              return h!=="开车"
+            })
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

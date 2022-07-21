@@ -7,7 +7,8 @@
 </head>
 <body>
     <div id="root">
-        双向数据绑定：<input type="text" v-model:value="name">
+        单向数据绑定：<input type="text" :value="name"><br>
+        双向数据绑定：<input type="text" v-model="name">
     </div>
     
 </body>
@@ -19,6 +20,7 @@ new Vue({
         name:'ceshi'
     }
 })
+
 
 </script>
 </html>

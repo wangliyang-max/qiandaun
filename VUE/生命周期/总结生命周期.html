@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <h2 :style="{opacity:opacity}">欢迎，yang</h2>
+      <button @click="opacity=1">透明度设置为1</button>
+      <button @click="stop">点我停止变化</button>
+    </div>
+
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+
+      const vm = new Vue({
+        el: "#root",
+        data: {
+            opacity:1,
+        },
+        methods: {
+          stop(){
+            this.$destroy()
+          }
+        },
+        // Vue完成模板的解析并把初始的真实DOM元素放入页面后（即挂载完毕后）调用mounted
+        mounted(){
+            this.timer = setInterval(()=>{
+                vm.opacity -=0.01
+                if(vm.opacity<=0)vm.opacity = 1
+            },16) 
+        },
+        beforeDestroy() {
+          clearInterval(this.timer)
+        },
+
+      });
+
+    //   通过外部的定时器实现(不推荐)
+    //   setInterval(()=>{
+    //     vm.opacity -=0.01
+    //     if(vm.opacity<=0)vm.opacity = 1
+    //   },16)
+    </script>
+  </body>
+</html>

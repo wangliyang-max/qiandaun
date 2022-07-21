@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+    <input type="text" v-model="keyWord" placeholder="请输入名字">
+      <ul>
+        <li v-for="(p,index) in filPerson" :key="p.id">{{p.name}}-{{p.age}}-{{p.age}}</li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+    //   用watch实现
+    // #region
+      /*new Vue({
+        el: "#root",
+        data: {
+          keyWord: "",
+          persons: [
+            { id: "001", name: "张三", age: 18,sex:"男" },
+            { id: "002", name: "李四", age: 21,sex:"男" },
+            { id: "003", name: "王五", age: 19,sex:"男" },
+            { id: "004", name: "张浩", age: 19,sex:"男" },
+            { id: "005", name: "小四", age: 19,sex:"男" },
+          ],
+          filPerson:[]
+        },
+        watch:{
+            keyWord:{
+                immediate:true,
+                handler(newValue){
+                this.filPerson = this.persons.filter((p)=>{
+                    // 过滤名字中包含搜索值得数据
+                    // 空串中都包含空串""
+                    return p.name.indexOf(newValue)!=-1
+                })
+            }
+            }
+        }
+
+      });*/
+
+    // #endregion
+
+    //   计算属性实现
+    new Vue({
+        el:'#root',
+        data: {
+          keyWord: "",
+          sortType:0,//0原顺序，1降序，2升序
+          persons: [
+            { id: "001", name: "张三", age: 18,sex:"男" },
+            { id: "002", name: "李四", age: 21,sex:"男" },
+            { id: "003", name: "王五", age: 19,sex:"男" },
+            { id: "004", name: "张浩", age: 19,sex:"男" },
+            { id: "005", name: "小四", age: 19,sex:"男" },
+          ]
+        },
+          computed:{
+            filPerson(){
+                return this.persons.filter((p)=>{
+                    return p.name.indexOf(this.keyWord)!=-1
+                })
+            }
+
+          }
+        })
+    </script>
+  </body>
+</html>

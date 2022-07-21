@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h3>a的值是{{number.a}}</h3>
+        <button @click="number.a++">点我a加1</button>
+    </div>
+    <script type='text/javascript'>
+    Vue.config.productionTip = false;
+    const mv = new Vue({
+          el:'#root',
+          data: {
+            number:{
+                a:1,
+                b:1
+            }
+          },
+          watch:{
+            'number.a':{
+                handler(newValue,oldValue){
+                    console.log("a被修改了",newValue,oldValue)
+                }
+            },
+            'number':{
+                deep:true,
+                handler(newValue,oldValue){
+                    console.log("number被修改了",newValue,oldValue)
+                }
+            }
+          }
+  
+      })
+
+    </script>
+</body>
+</html>

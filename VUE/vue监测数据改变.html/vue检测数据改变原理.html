@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <!-- <script type="text/javascript" src="../js/vue.js"></script> -->
+  </head>
+  <body>
+    <script type="text/javascript">
+      let data ={
+        name:"yang",
+        age:18
+      }
+      // 创建检测实例的对象，检测数据的变化
+      const obs = new Observer(data)
+      // 准备vm实例对象
+      const vm = {}
+      vm._data = data = obs
+
+
+      function Observer(obj){
+        // 获取对象中的所有属性
+        const keys = Object.keys(obj);
+        // 遍历
+        keys.forEach((k)=>{
+          Object.defineProperty(this,k,{
+            get(){
+              return obj[k]
+            },
+            set(val){
+              console.log(`${k}被修改了，重新解析模板`)
+              obj[k] = val
+            }
+          })
+        })
+
+      }
+     
+    </script>
+  </body>
+</html>

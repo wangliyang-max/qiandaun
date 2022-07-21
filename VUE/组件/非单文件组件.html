@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <h2>实例1:</h2>
+    <div id="root">
+      <school></school>
+      <hr />
+      <student></student>
+    </div>
+    <h2>实例2:</h2>
+    <div id="root2">
+      <school></school>
+      <hr />
+      <student></student>
+    </div>
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+      //   创建school组件
+      const school = Vue.extend({
+        //     el: "#root",不要写el配置项,由vm决定该组件给谁用
+        data() {
+          return {
+            schoolName: "nefu",
+            address: "哈尔滨",
+          };
+        },
+        template: `
+        <div>
+            <h2>学校名字:{{schoolName}}</h2>
+            <h2>地址:{{address}}</h2>
+        </div>`,
+      });
+
+      const student = Vue.extend({
+        //     el: "#root",不要写el配置项,由vm决定该组件给谁用
+        data() {
+          return {
+            studentName: "🐏",
+            age: 18,
+          };
+        },
+        template: `
+        <div>
+            <h2>名字:{{studentName}}</h2>
+            <h2>年龄:{{age}}</h2>
+        </div>`,
+      });
+
+      //   第二步，注册组件(全局注册)
+      Vue.component("school", school);
+      Vue.component("student", student);
+
+      const vm = new Vue({
+        el: "#root",
+        //   第二步，注册组件
+        //   components:{
+        //     school:school,
+        //     student:student,
+        //   }
+      });
+      new Vue({
+        el: "#root2",
+      });
+    </script>
+  </body>
+</html>

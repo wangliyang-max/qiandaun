@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <!-- vue中定义的属性（属性和计算属性）可以通过`插值语法`在`标签体`中使用 -->
+        <h2>hello,{{name}}</h2>
+        <h2>今天天气很{{info}}</h2>
+
+        <!-- vue中定义的属性（属性和计算属性）也可以通过`指令语法`在`标签属性`中使用 -->
+        <button @click="isHot = !isHot">切换天气</button>
+        <!-- vue中定义的方法可以通过`指令语法`在`标签属性`中使用-->
+        <button @click="changeWeather">点击也可以切换天气</button>
+
+        <!-- vue中定义的方法也可以通过`插值语法`在`标签体`中使用 -->
+        <h2>{{sayHello()}}</h2>
+
+    </div>
+    <script type='text/javascript'>
+    Vue.config.productionTip = false;
+      new Vue({        
+          el:'#root',
+        //   属性
+          data: {
+            name:'yang',
+            isHot:true
+          },
+        //   计算属性
+          computed:{
+            info(){
+               return this.isHot?"炎热":"凉爽"
+            }
+          },
+
+        //   方法
+          methods: {
+            changeWeather(){
+                this.isHot = !this.isHot
+            },
+            sayHello(){
+                return "Hello"
+            }
+          },
+      })
+    </script>
+</body>
+</html>

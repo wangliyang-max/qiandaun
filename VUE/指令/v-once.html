@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript" src="../js/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+       <div v-once>n初始值是{{n}}</div>
+       <div>当前的n值是{{n}}</div>
+       <button @click="n++">点我n+1</button>
+    </div>
+
+    <script type="text/javascript">
+      Vue.config.productionTip = false;
+
+      new Vue({
+        el:"#root",
+        data:{
+          n:1
+        }
+      });
+    </script>
+  </body>
+</html>
