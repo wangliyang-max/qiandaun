@@ -18,17 +18,7 @@ export default {
             myAge:this.age
         }
     },
-    props: {
-        name: {
-            type: String,
-            required:true,
-        },
-        age: {
-            type: Number,
-            default:99
-        },
-       
-    },
+    props: ['name','age'],
     methods: {
         addAge() {
             this.myAge++

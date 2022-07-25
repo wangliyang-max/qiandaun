@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type='text/javascript'>
+        let person ={
+            name:'yang',
+            age:18
+        }
+
+        // vue2的响应式原理
+        /*let p ={}
+        Object.defineProperty(p,'name',{
+            get(){
+                return person.name
+            },
+            set(value){
+                console.log("name被修改了，触发了响应式")
+                person.name = value
+            }
+        })
+        Object.defineProperty(p,'age',{
+            get(){
+                return person.age
+            },
+            set(value){
+                console.log("age被修改了，触发了响应式")
+                person.age = value
+            }
+        })*/
+
+         // vue3的响应式原理
+        const p =new Proxy(person,{
+            // 读取p的属性的响应式
+            get(target,propName){
+                // target代表person源对象
+                // propName代表读取的属性名
+                console.log(`有人读取了person身上的${propName}属性`)
+
+                // propName是一个变量需要使用数组形式读取
+                return Reflect.get(target,propName)
+            },
+             // 修改p或给p追加属性时的响应式
+            set(target,propName,value){
+                console.log(`有人修改了了person身上的${propName}属性，我要去修改页面了`)
+                Reflect.set(target,propName,value)
+            },
+            // 删除p的属性时的响应式
+            deleteProperty(target,propName){
+                console.log(`有人删除了person身上的${propName}属性，我要去修改页面了`)
+                return Reflect.deleteProperty(target,propName)
+            }
+         })
+        
+
+        //  Reflect
+        /*
+        // 读取
+        Reflect.get(person,"name")
+        // 修改
+        Reflect.set(person,"name","cheng")
+        // 添加
+        Reflect.set(person,"sex","男")
+        // 删除
+        Reflect.deleteProperty(person,"name")
+        */
+
+        /*Reflect.defineProperty(person,"school",{
+            get(){
+                return "nefu"
+            },
+            set(value){
+                person.school = value
+            }
+        })
+        Object.defineProperty(person,"school",{
+            get(){
+                return "nefu"
+            },
+            set(value){
+                person.school = value
+            }
+        })*/
+
+
+    </script>
+</body>
+</html>
