@@ -1,0 +1,17 @@
+{
+  "name": "nuxt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "vue": "^2.7.14",
+    "vue-server-renderer": "^2.7.14"
+  }
+}

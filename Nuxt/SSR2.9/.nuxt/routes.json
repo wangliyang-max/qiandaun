@@ -1,0 +1,95 @@
+[
+  {
+    "name": "goods",
+    "path": "/goods",
+    "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\goods\\\\index.vue",
+    "chunkName": "pages/goods/index",
+    "_name": "_75dc62a6"
+  },
+  {
+    "name": "login",
+    "path": "/login",
+    "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_7977e8ef"
+  },
+  {
+    "name": "reg",
+    "path": "/reg",
+    "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\reg.vue",
+    "chunkName": "pages/reg",
+    "_name": "_4853281a"
+  },
+  {
+    "name": "user",
+    "path": "/user",
+    "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\user.vue",
+    "chunkName": "pages/user",
+    "_name": "_42ff1096"
+  },
+  {
+    "path": "/goods/comment",
+    "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\goods\\\\comment.vue",
+    "chunkName": "pages/goods/comment",
+    "children": [
+      {
+        "name": "goods-comment",
+        "path": "",
+        "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\goods\\\\comment\\\\index.vue",
+        "chunkName": "pages/goods/comment/index",
+        "_name": "_54d20b22"
+      },
+      {
+        "name": "goods-comment-uid",
+        "path": ":uid",
+        "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\goods\\\\comment\\\\_uid.vue",
+        "chunkName": "pages/goods/comment/_uid",
+        "_name": "_5453edf8"
+      }
+    ],
+    "_name": "_46df0a9a"
+  },
+  {
+    "name": "test-secondRouter",
+    "path": "/test/secondRouter",
+    "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\test\\\\secondRouter.vue",
+    "chunkName": "pages/test/secondRouter",
+    "_name": "_5b890bd9"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_a05f7450"
+  },
+  {
+    "name": "goods-id",
+    "path": "/goods/:id",
+    "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\goods\\\\_id.vue",
+    "chunkName": "pages/goods/_id",
+    "children": [
+      {
+        "name": "goods-id-producer",
+        "path": "producer",
+        "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\goods\\\\_id\\\\producer.vue",
+        "chunkName": "pages/goods/_id/producer",
+        "_name": "_d1f945c0"
+      },
+      {
+        "name": "goods-id-sid",
+        "path": ":sid?",
+        "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\goods\\\\_id\\\\_sid.vue",
+        "chunkName": "pages/goods/_id/_sid",
+        "_name": "_7f4c5e1d"
+      }
+    ],
+    "_name": "_c36252e4"
+  },
+  {
+    "name": "home",
+    "path": "/index",
+    "component": "C:\\\\Users\\\\86198\\\\VScode\\\\qianDuan\\\\Nuxt\\\\SSR2.9\\\\pages\\\\index.vue",
+    "_name": "_a05f7450"
+  }
+]

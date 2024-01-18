@@ -14,7 +14,9 @@
     <div class="title">欢迎回来</div>
      <ul class="list"></ul>
     <script type='text/javascript'>
-    fetch("/api/home/list").then((res) => res.json())
+    fetch("/api/home/list").then((res) => {
+        console.log(res)
+        res.json()})
           .then((res)=>{
             console.log(res)
             render(res)

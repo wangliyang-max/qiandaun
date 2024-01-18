@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./promise.js"></script>
+  </head>
+  <body>
+    <script>
+      // 这里的Promise是 ./promise.js 文件中的Promise
+      let p = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          // resolve("ok");
+          reject("error");
+        }, 1000);
+      });
+
+      console.log(p);
+
+      const result = p
+        .then((value) => {
+          console.log(value);
+        })
+        .then((value) => {
+          console.log(value);
+        })
+        .then((value) => {
+          console.log(value);
+        });
+      console.log("result", result);
+    </script>
+  </body>
+</html>

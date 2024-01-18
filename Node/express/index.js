@@ -24,6 +24,7 @@ app.use(func1)
 
 // 应用级别中间件
 app.use("/api/", indexRouter)
+app.use("/login", router)
 
 app.use((req, res) => {
     res.status(404).send("出错了")
